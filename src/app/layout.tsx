@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-
+import Navbar from '../../components/Navbar';
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`bg-[#090909] text-white ${plusJakartaSans.className}`}
-    >
-      <body>{children}</body>
+    <html lang="en" className={`${plusJakartaSans.className}`}>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
