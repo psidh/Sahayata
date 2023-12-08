@@ -16,7 +16,7 @@ export default function SignUp() {
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const onSignUp = async () => {
     try {
@@ -47,12 +47,12 @@ export default function SignUp() {
   }, [user]);
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center">
-      <h1>{loading ? 'Processing' : 'Sign Up'}</h1>
-      <hr />
+    <div className="flex flex-col my-16 items-center justify-center text-left">
+      <h1 className="text-4xl my-4">{loading ? 'Processing' : 'Sign Up'}</h1>
+      <hr className="border-gray-600 py-1 w-1/4 my-4" />
       <label htmlFor="username">Username</label>
       <input
-        className="p-2 bg-[#424242] text-white  rounded-xl mb-4 focus:outline-none focus:border-[#303030]"
+        className="p-2 bg-gray-200 rounded-lg mb-4 focus:outline-none "
         id="username"
         type="text"
         value={user.username}
@@ -60,7 +60,7 @@ export default function SignUp() {
       />
       <label htmlFor="email">Email</label>
       <input
-        className="p-2 bg-[#424242] text-white  rounded-xl mb-4 focus:outline-none focus:border-[#303030]"
+        className="p-2 bg-gray-200 rounded-lg mb-4 focus:outline-none "
         id="email"
         type="email"
         value={user.email}
@@ -68,20 +68,22 @@ export default function SignUp() {
       />
       <label htmlFor="password">Password</label>
       <input
-        className="p-2 bg-[#424242] text-white  rounded-xl mb-4 focus:outline-none focus:border-[#303030]"
+        className="p-2 bg-gray-200 rounded-lg mb-4 focus:outline-none "
         id="password"
         type="password"
         value={user.password}
         onChange={(event) => setUser({ ...user, password: event.target.value })}
       />
-
-      <button
+      {!buttonDisabled ? (
+        <button
         onClick={onSignUp}
-        className="p-2 my-6 border rounded-xl border-gray-500 transition duration-300 hover:bg-gray-700
+        className="py-2 px-8 my-6 rounded-xl bg-gray-200 transition duration-300 hover:bg-gray-700
       "
-      >
-        {buttonDisabled ? ' ' : 'Sign Up'}
-      </button>
+      >SignUp</button>
+      ): (
+        <p className="py-2 px-8 my-6 rounded-xl text-gray-600 transition duration-300 bg-gray-200
+        ">SignUp</p>
+      )}
       <Link href={'/login'}>Already a User? Login</Link>
     </div>
   );
