@@ -31,11 +31,11 @@ const LeafletMap = () => {
   }, []); // Empty dependency array to run the effect only once on mount
 
   return (
-    <div className='flex'>
-      <div className="w-[30%] h-screen">
+    <div className='flex flex-col md:flex-row'>
+      <div className="md:w-[30%] h-screen">
         <Sidebar />
       </div>
-      <div id="map" className="w-[70%]"></div>
+      <div id="map" className="md:w-[70%]"></div>
     </div>
   );
 };
