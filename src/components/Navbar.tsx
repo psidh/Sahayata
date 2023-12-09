@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link href={'/login'} className={linkClass}>Dashboard</Link>
           <Link href={'/signup'} className={linkClass}>SignUp</Link>     
         </div>
-        <AiOutlineMenu onClick={toggleNav}  className="flex lg:hidden w-12 h-12 cursor-pointer"/>
+        <AiOutlineMenu onClick={toggleNav}  className="flex lg:hidden w-6 h-6 md:w-12 md:h-12 cursor-pointer"/>
       </div>
 
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
