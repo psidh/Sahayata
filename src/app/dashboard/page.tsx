@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { toast } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 
@@ -38,7 +38,7 @@ export default function ProfilePage() {
       <div>
       <Sidebar />
       </div>
-      <div></div>
+      <Toaster/> 
       <div className="flex flex-col space-x-2">
         <button
           onClick={logout}
