@@ -27,11 +27,18 @@ export default function Login() {
       });
 
       const response = await axios.post('/api/users/login', user);
-      toast.success('Login Successful');
+      toast.success('Login Successful',{
+      style: {
+        width: '100px', // Set the width of the toast
+        height: '100px', // Set the height of the toast
+        top: '50%', // Center the toast vertically
+        left: '50%', // Center the toast horizontally
+        transform: 'translate(-50%, -50%)', // Adjust the position to center
+      },});
       console.log('Login Success', response.data);
       router.push('/dashboard');
     } catch (error: any) {
-      toast.error('Email or Password seems to be incorrect. Please try again');
+      toast.error('Email or Password seems to be incorrect. Please try again',)
       console.log('Login Failed');
       console.log(error);
     } finally {

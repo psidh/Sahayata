@@ -30,5 +30,6 @@ export const config = {
     '/verifyemail',
     '/about',
     '/contact',
+    '/dashboard',
   ],
 };
