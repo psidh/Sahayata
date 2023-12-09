@@ -1,0 +1,19 @@
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 20% 40%;
+  }
+  100% {
+    background-position: 40%;
+  }
+}
+
+.bg-body {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255),
+    rgba(29, 11, 228, 0.1)
+  );
+}

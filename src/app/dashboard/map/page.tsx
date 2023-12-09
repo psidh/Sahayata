@@ -1,6 +1,7 @@
-'use client'
+'use client';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
+import Sidebar from '@/components/Sidebar';
 
 const LeafletMap = () => {
   useEffect(() => {
@@ -14,11 +15,11 @@ const LeafletMap = () => {
         const marker = L.marker([17.6868, 83.2185]).addTo(mymap);
 
         // Add a popup to the marker
-        marker.bindPopup("<b>Hello, Manager").openPopup();
+        marker.bindPopup('<b>Hello, Manager').openPopup();
 
         // Add the OpenStreetMap tile layer to the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
+          attribution: '© OpenStreetMap contributors',
         }).addTo(mymap);
 
         // Cleanup on component unmount
@@ -29,7 +30,14 @@ const LeafletMap = () => {
     }
   }, []); // Empty dependency array to run the effect only once on mount
 
-  return <div id="map" className='h-screen' />;
+  return (
+    <div className='flex'>
+      <div className="w-[30%] h-screen">
+        <Sidebar />
+      </div>
+      <div id="map" className="w-[70%]"></div>
+    </div>
+  );
 };
 
 export default LeafletMap;
