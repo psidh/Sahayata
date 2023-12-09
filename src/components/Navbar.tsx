@@ -26,7 +26,8 @@ export default function Navbar() {
           <Link href={'/'} className={normal}>Home</Link>
           <Link href={'/about'} className={normal}>About</Link>
           <Link href={'/contact'} className={normal}>Contact</Link>
-          <Link href={'/login'} className={linkClass}>Dashboard</Link>
+          <Link href={'/login'} className={linkClass}>Login</Link>
+          <Link href={'/dashboard'} className={linkClass}>Dashboard</Link>
           <Link href={'/signup'} className={linkClass}>SignUp</Link>     
         </div>
         <AiOutlineMenu onClick={toggleNav}  className="flex lg:hidden w-6 h-6 md:w-12 md:h-12 cursor-pointer"/>
@@ -37,7 +38,8 @@ export default function Navbar() {
           <Link href={'/'} className={normal}>Home</Link>
           <Link href={'/about'} className={normal}>About</Link>
           <Link href={'/contact'} className={normal}>Contact</Link>
-          <Link href={'/login'} className={normal}>Dashboard</Link>
+          <Link href={'/login'} className={linkClass}>Login</Link>
+          <Link href={'/dashboard'} className={normal}>Dashboard</Link>
           <Link href={'/signup'} className={normal}>SignUp</Link>    
         </div>
       )}
