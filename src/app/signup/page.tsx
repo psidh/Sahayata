@@ -47,11 +47,11 @@ export default function SignUp() {
   }, [user]);
 
   return (
-    <div className="flex flex-col pt-16 pb-24 justify-center items-center bg-body">
+    <div className="flex flex-col min-h-screen justify-center items-center bg-body">
       <div
-        className="py-6 px-16 w-[80%] md:w-[40%] backdrop-xl bg-opacity-80
-         border bg-white border-gray-200 rounded-xl
-       flex flex-col justify-center"
+        className="p-5 md:py-6 md:px-16 w-[80%] md:w-[40%] backdrop-xl 
+        bg-opacity-80 border bg-white border-gray-200 rounded-xl
+        flex flex-col justify-center"
       >
         <h1 className="text-4xl my-4">
           {loading ? 'Processing...' : 'Sign Up'}

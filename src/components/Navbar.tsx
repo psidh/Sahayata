@@ -13,7 +13,7 @@ export default function Navbar() {
   =`py-1 rounded-full bg-blue-800 px-6 text-white border-2 hover:text-black
     hover:bg-white border-blue-800 transition duration-300`
 
-  const normal ='text-lg hover:text-[#1900ff] m-6 md:m-0';
+  const normal ='text-lg hover:text-[#1900ff] mx-4 my-2 md:m-0';
 
   return (
     <div>
@@ -34,7 +34,7 @@ export default function Navbar() {
 
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <div className="flex flex-col lg:hidden ">
-           <Link href={'/'} className={normal}>Home</Link>
+          <Link href={'/'} className={normal}>Home</Link>
           <Link href={'/about'} className={normal}>About</Link>
           <Link href={'/contact'} className={normal}>Contact</Link>
           <Link href={'/login'} className={normal}>Dashboard</Link>

@@ -16,7 +16,7 @@ export default function Login() {
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const onLogin = async () => {
     try {
@@ -43,13 +43,15 @@ export default function Login() {
   }, [user]);
 
   return (
-    <div className="flex flex-col pt-16 pb-24 justify-center items-center bg-body">
+    <div className="flex flex-col min-h-screen justify-center items-center bg-body">
       <div
-        className="py-6 px-16 w-[80%] md:w-[40%] backdrop-xl 
-      bg-opacity-80 border bg-white border-gray-200 rounded-xl
+        className="p-5 md:py-6 md:px-16 w-[80%] md:w-[40%] backdrop-xl 
+       bg-opacity-80 border bg-white border-gray-200 rounded-xl
        flex flex-col justify-center"
       >
-        <h1 className="text-4xl my-4 semibold"> Login</h1>
+        <h1 className="text-4xl my-2 md:my-4 semibold">
+          {loading ? 'Processing...' : 'Login'}
+        </h1>
         <hr className="border-gray-600 py-1 w-full my-4" />
         <label htmlFor="email" className="mt-3 mb-4">
           Email
