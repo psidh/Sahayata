@@ -94,7 +94,8 @@ export default function SignUp() {
         {!buttonDisabled ? (
           <button
             onClick={onSignUp}
-            className="py-2 px-8 my-6 text-center rounded-xl bg-gray-200 transition duration-300 hover:bg-gray-700
+            className="py-2 px-8 my-6 border text-center rounded-md 
+            transition duration-300 bg-blue-600 text-white hover:bg-blue-800
       "
           >
             SignUp
