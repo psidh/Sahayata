@@ -51,6 +51,7 @@ export default function Sidebar() {
         <Link href={'/dashboard'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Home</Link>
         <Link href={'/dashboard/data'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>View Record</Link>
         <Link href={'/dashboard/new'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Add Record</Link>
+        <Link href={'/dashboard/get'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Get Record</Link>
         <Link href={'/dashboard/map'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Map</Link>
         <button onClick={getUserDetails} className={`${linkClass} hover:bg-yellow-600 bg-yellow-500 invisible md:visible`}>Profile</button>
         <h2 className={`${linkClass} hover:bg-red-600 bg-red-500  invisible md:visible`}>

@@ -57,5 +57,20 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  
+  try {
+    const data = await Table.find();
+    console.log(data);
+    return NextResponse.json(data);
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+
+  const id = request.nextUrl.searchParams.get('id');
+  console.log(id);
+  const deletedData = await Table.findByIdAndDelete(id);
+  console.log(deletedData);
+  return NextResponse.json({ message : 'Row deleted', status: 200 });
 }
