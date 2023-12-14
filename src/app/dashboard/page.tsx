@@ -1,68 +1,61 @@
-'use client';
-import axios from 'axios';
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Toaster, toast } from 'react-hot-toast';
-import { useRouter } from 'next/navigation';
+'use client'
+import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
+import data from '../../data/daily';
 
-export default function ProfilePage() {
-  const router = useRouter();
+interface DummyDataItem {
+  slNo: number;
+  date: string;
+  dumperId: string;
+  status: string;
+  currentCapacity: number;
+  availableCapacity: number;
+  operatorId: string;
+}
 
-  const [data, setData] = useState('nothing');
+export default function Table(): JSX.Element {
+  const [tableData, setTableData] = useState<DummyDataItem[]>([]);
 
-  const logout = async () => {
-    try {
-      await axios.get('/api/users/logout');
-      toast.success('Logout successful');
-      router.push('/login');
-    } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
-    }
-  };
-
-  const getUserDetails = async () => {
-    try {
-      const res = await axios.get('/api/users/me');
-      console.log(res.data);
-      setData(res.data.data._id);
-    } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
-    }
-  };
+  useEffect(() => {
+    setTableData(data);
+  }, []);
 
   return (
-    <div className='flex flex-col md:flex-row  justify-between'>
-      <div>
-      <Sidebar />
+    <div className="flex justify-between">
+      <div className="w-[30%]">
+        <Sidebar />
       </div>
-      <Toaster/> 
-      <div className="flex flex-col space-x-2">
-        <button
-          onClick={logout}
-          className="py-2 px-6 mb-4 border rounded-full transition duration-300
-         hover:bg-white hover:text-black"
-        >
-          Logout
-        </button>
-        <button
-          onClick={getUserDetails}
-          className="py-2 px-6 mt-4 border rounded-full transition duration-300
-          hover:bg-green "
-        >
-          Get User Details
-        </button>
-        <h2 className="py-2 px-6 mt-4 rounded-full bg-blue-500">
-          {data === 'nothing' ? (
-            'Nothing'
-          ) : (
-            <Link href={`/dashboard/${data}`} target="_blank">
-              {data}
-            </Link>
-          )}
-        </h2>
+      <div className="w-[70%]">
+        <h1 className="text-3xl mx-4 my-8 w-1/2">Insights</h1>
+        <table className="table-fixed mx-4 my-8">
+          <thead className="bg-gray-200">
+            <tr>
+              <th className="py-2 px-4 border-b">SL.NO</th>
+              <th className="py-2 px-4 border-b">DATE</th>
+              <th className="py-2 px-4 border-b">DUMPER ID</th>
+              <th className="py-2 px-4 border-b">STATUS</th>
+              <th className="py-2 px-4 border-b">CURRENT CAPACITY</th>
+              <th className="py-2 px-4 border-b">AVAILABLE CAPACITY</th>
+              <th className="py-2 px-4 border-b">OPERATOR ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((item, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+              >
+                <td className="py-2 px-4 border">{item.slNo}</td>
+                <td className="py-2 px-4 border">{item.date}</td>
+                <td className="py-2 px-4 border">{item.dumperId}</td>
+                <td className="py-2 px-4 border">{item.status}</td>
+                <td className="py-2 px-4 border">{item.currentCapacity}</td>
+                <td className="py-2 px-4 border">{item.availableCapacity}</td>
+                <td className="py-2 px-4 border">{item.operatorId}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
