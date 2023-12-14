@@ -6,4 +6,5 @@ export default interface TableDataItem {
   currentCapacity: number;
   availableCapacity: number;
   operatorId: string;
+  time: string;
 }

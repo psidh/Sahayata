@@ -1,18 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
-import { useRouter, useSearchParams } from 'next/navigation';
+import TableDataItem from '../../../utils/table';
 
-interface TableDataItem {
-  slNo: number;
-  date: string;
-  dumperId: string;
-  status: string;
-  currentCapacity: number;
-  availableCapacity: number;
-  operatorId: string;
-  time: string; // Added time property to the interface
-}
 
 export default function Table(): JSX.Element {
   const [tableData, setTableData] = useState<TableDataItem[]>([]);
@@ -84,6 +74,8 @@ export default function Table(): JSX.Element {
                 <td className={rowClass}>{item.availableCapacity}</td>
                 <td className={rowClass}>{item.operatorId}</td>
                 <td className={rowClass}>{item.time}</td>
+                <td className={rowClass}>{item.time}</td>
+                
               </tr>
             ))}
           </tbody>
