@@ -4,7 +4,7 @@ import Sidebar from '@/components/Sidebar';
 import TableDataItem from '../../../utils/table';
 import { toast, Toaster } from 'react-hot-toast';
 
-const initialState ={
+const initialState = {
   slNo: 0,
   date: '',
   dumperId: '',
@@ -13,13 +13,11 @@ const initialState ={
   availableCapacity: 0,
   operatorId: '',
   time: '',
-}
+};
 export default function Table(): JSX.Element {
   const [table, setTable] = useState<TableDataItem>(initialState);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTable({
       ...table,
       [e.target.name]: e.target.value,
@@ -73,93 +71,126 @@ export default function Table(): JSX.Element {
         {/* <p className="text-xl  font-semibold mx-4 mt-8 my-16 flex-grow ">Enter the details of the dumper</p> */}
 
         {/* Input form */}
-        <div className="mx-4 my-8 space-y-4 ">
-          <label className="flex flex-col">
-            SL.NO:
-            <input
-              type="number"
-              name="slNo"
-              value={table.slNo}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            DATE:
-            <input
-              type="text"
-              name="date"
-              value={table.date}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            DUMPER ID:
-            <input
-              type="text"
-              name="dumperId"
-              value={table.dumperId}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            STATUS:
-            <input
-              type="text"
-              name="status"
-              value={table.status}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            CURRENT CAPACITY:
-            <input
-              type="number"
-              name="currentCapacity"
-              value={table.currentCapacity}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            AVAILABLE CAPACITY:
-            <input
-              type="number"
-              name="availableCapacity"
-              value={table.availableCapacity}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            OPERATOR ID:
-            <input
-              type="text"
-              name="operatorId"
-              value={table.operatorId}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
-          <label className="flex flex-col">
-            TIME:
-            <input
-              type="text"
-              name="operatorId"
-              value={table.time}
-              onChange={handleInputChange}
-              className="p-2 rounded-md border border-[#969696]"
-            />
-          </label>
+        <div className="mx-4 my-8 flex flex-col">
+          <div className="space-y-4 flex flex-col justify-between w-[70%]">
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">SL.NO:</label>
+              <div>
+                <input
+                  type="number"
+                  name="slNo"
+                  placeholder="Enter SL.NO"
+                  value={table.slNo}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border  border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">DATE:</label>
+              <div>
+                <input
+                  type="text"
+                  name="date"
+                  placeholder="Enter DATE"
+                  value={table.date}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">DUMPER ID:</label>
+              <div>
+                <input
+                  type="text"
+                  name="dumperId"
+                  placeholder="Enter DUMPER ID"
+                  value={table.dumperId}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">STATUS:</label>
+              <div>
+                <input
+                  type="text"
+                  name="status"
+                  placeholder="Enter STATUS"
+                  value={table.status}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">CURRENT CAPACITY:</label>
+              <div>
+                <input
+                  type="number"
+                  name="currentCapacity"
+                  placeholder="Enter CURRENT CAPACITY"
+                  value={table.currentCapacity}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">AVAILABLE CAPACITY:</label>
+              <div>
+                <input
+                  type="number"
+                  name="availableCapacity"
+                  placeholder="Enter AVAILABLE CAPACITY"
+                  value={table.availableCapacity}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">OPERATOR ID:</label>
+              <div>
+                <input
+                  type="text"
+                  name="operatorId"
+                  placeholder="Enter OPERATOR ID"
+                  value={table.operatorId}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center text-xl font-semibold text-blue-800">TIME:</label>
+              <div>
+                <input
+                  type="text"
+                  name="time"
+                  placeholder="Enter TIME"
+                  value={table.time}
+                  onChange={handleInputChange}
+                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                />
+              </div>
+            </div>
+          </div>
 
           <button
             onClick={async () => {
               await handlePushData();
             }}
-            className={`py-2 px-8 my-6 border text-center rounded-md ${
+            className={`py-2 px-8 my-6 border  text-center rounded-md ${
               table.slNo > 0
                 ? 'bg-blue-600 text-white hover:bg-blue-800'
                 : 'text-gray-500 bg-gray-200'
