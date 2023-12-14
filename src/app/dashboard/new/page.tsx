@@ -4,7 +4,7 @@ import Sidebar from '@/components/Sidebar';
 import TableDataItem from '../../../utils/table';
 import { toast, Toaster } from 'react-hot-toast';
 
-const initialTableState: TableDataItem = {
+const initialState ={
   slNo: 0,
   date: '',
   dumperId: '',
@@ -12,13 +12,13 @@ const initialTableState: TableDataItem = {
   currentCapacity: 0,
   availableCapacity: 0,
   operatorId: '',
-};
-
+  time: '',
+}
 export default function Table(): JSX.Element {
-  const [table, setTable] = useState<TableDataItem>(initialTableState);
+  const [table, setTable] = useState<TableDataItem>(initialState);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setTable({
       ...table,
@@ -33,7 +33,7 @@ export default function Table(): JSX.Element {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...table }),
+        body: JSON.stringify(table),
       });
 
       const responseData = await response.json(); // Parse response JSON
@@ -50,7 +50,7 @@ export default function Table(): JSX.Element {
             transform: 'translate(-50%, -50%)', // Adjust the position to center
           },
         });
-        setTable(initialTableState);
+        setTable(initialState);
       } else {
         console.error('Server error:', responseData.error); // Log server error
         console.error('Failed to push data to the server');
@@ -62,11 +62,14 @@ export default function Table(): JSX.Element {
 
   return (
     <div className="flex justify-between">
+      <Toaster />
       <div>
         <Sidebar />
       </div>
-      <div className='w-[70%] mr-8'>
-        <h1 className="text-5xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow ">Enter Record: </h1>
+      <div className="w-[70%] mr-8">
+        <h1 className="text-5xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow ">
+          Enter Record:{' '}
+        </h1>
         {/* <p className="text-xl  font-semibold mx-4 mt-8 my-16 flex-grow ">Enter the details of the dumper</p> */}
 
         {/* Input form */}
@@ -137,6 +140,16 @@ export default function Table(): JSX.Element {
               type="text"
               name="operatorId"
               value={table.operatorId}
+              onChange={handleInputChange}
+              className="p-2 rounded-md border border-[#969696]"
+            />
+          </label>
+          <label className="flex flex-col">
+            TIME:
+            <input
+              type="text"
+              name="operatorId"
+              value={table.time}
               onChange={handleInputChange}
               className="p-2 rounded-md border border-[#969696]"
             />
