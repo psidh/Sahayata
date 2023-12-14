@@ -29,7 +29,7 @@ export default function Table(): JSX.Element {
         <Sidebar />
       </div>
       <div className="">
-        <h1 className="text-6xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow  ">Dumper Operations</h1>
+        <h1 className="text-6xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow  ">Records</h1>
         <table className=" mx-4 my-8 flex-grow ">
           <thead className="bg-gray-200  flex-grow ">
             <tr>

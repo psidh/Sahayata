@@ -7,13 +7,9 @@ import { useState } from 'react';
 import { IoIosMenu } from "react-icons/io";
 
 export default function Sidebar() {
-  const linkClass = `w-full md:px-28 md:py-6 rounded-lg bg-blue-200
-   text-gray-700 transition-colors duration-200 transform text-center
-  hover:bg-gray-100 hover:text-gray-900`;
-
-  const logClass = `w-full md:px-28 md:py-6 rounded-lg bg-red-500
-  transition-colors duration-200 transform text-center
-  hover:bg-red-400 text-white`;
+  const linkClass = `w-full md:px-20 text-xl md:py-4 rounded-lg 
+  text-white font-semibold transition-colors duration-200 transform text-center
+  `;
 
   const [isSidebarVisible, setSidebarVisible] = useState(true);
 
@@ -48,27 +44,25 @@ export default function Sidebar() {
 
   return (
     <div >
-      
       <IoIosMenu  onClick={toggleSidebar} className='w-12 h-12 mx-8 cursor-pointer'/>
-      <Toaster/> 
-
+      <Toaster/>
       <div className={`flex justify-between mx-4 my-8`}> 
-      <div className={`w-full rounded-md p-2 md:p-8 bg-blue-300/50 flex flex-row items-center md:flex-col md:space-y-2 ${isSidebarVisible ? '' : 'hidden'}` }>
-        
-        <Link href={'/dashboard'} className={linkClass}>Home</Link>
-        <Link href={'/dashboard/data'} className={linkClass}>Data</Link>
-        <Link href={'/dashboard/map'} className={linkClass}>Map</Link>
-        <button onClick={getUserDetails} className={`${logClass} hidden md:flex`}>🔒 </button>
-        <h2 className={`${logClass} hidden md:flex`}>
+      <div className={`w-full rounded-md p-2 md:p-8  flex flex-row items-center md:flex-col md:space-y-2 ${isSidebarVisible ? '' : 'hidden'}` }>
+        <Link href={'/dashboard'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Home</Link>
+        <Link href={'/dashboard/data'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>View Record</Link>
+        <Link href={'/dashboard/new'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Add Record</Link>
+        <Link href={'/dashboard/map'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Map</Link>
+        <button onClick={getUserDetails} className={`${linkClass} hover:bg-yellow-600 bg-yellow-500 invisible md:visible`}>Profile</button>
+        <h2 className={`${linkClass} hover:bg-red-600 bg-red-500  invisible md:visible`}>
           {data === 'nothing' ? (
             '🔒 Encrypted'
           ) : (
             <Link href={`/dashboard/${data}`} target="_blank">
-              🔓 Click to 
+              🔓 Unlocked
             </Link>
           )}
         </h2>
-        <button onClick={logout} className={`${logClass} hidden md:flex`}>Logout</button>
+        <button onClick={logout} className={`${linkClass} hover:bg-red-600 bg-red-500  invisible md:visible`}>Logout</button>
       </div>
       </div>
     </div>

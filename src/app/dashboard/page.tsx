@@ -3,29 +3,33 @@ import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
 import data from '../../data/daily';
 
-interface DummyDataItem {
-  slNo: number;
-  date: string;
-  dumperId: string;
-  status: string;
-  currentCapacity: number;
-  availableCapacity: number;
-  operatorId: string;
-}
 
 export default function Table(): JSX.Element {
-  const [tableData, setTableData] = useState<DummyDataItem[]>([]);
+  // const [tableData, setTableData] = useState<TableDataItem[]>([]);
 
-  useEffect(() => {
-    setTableData(data);
-  }, []);
+  // useEffect(() => {
+  //   setTableData(data);
+  // }, []);
+
+  // const [pushData, setPushData] = useState({
+  //   slNo: 0,
+  //   date: 'string',
+  //   dumperId: '',
+  //   status: '',
+  //   currentCapacity: 0,
+  //   availableCapacity: 0,
+  //   operatorId: ''
+  // });
+  
+  const tableData = data;
+
 
   return (
     <div className="flex justify-between">
-      <div className="w-[30%]">
+      <div>
         <Sidebar />
       </div>
-      <div className="w-[70%]">
+      <div>
         <h1 className="text-3xl mx-4 my-8 w-1/2">Insights</h1>
         <table className="table-fixed mx-4 my-8">
           <thead className="bg-gray-200">
@@ -60,3 +64,6 @@ export default function Table(): JSX.Element {
     </div>
   );
 }
+
+
+
