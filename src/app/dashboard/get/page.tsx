@@ -1,7 +1,9 @@
 'use client';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Toast, Toaster } from 'react-hot-toast';
+import { TEInput } from 'tw-elements-react';
 import { useRouter } from 'next/navigation';
+import Sidebar from '@/components/Sidebar';
 
 export default function Page() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -15,11 +17,14 @@ export default function Page() {
   
   
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
-      <div className="w-[50%]">
+    <div className="flex justify-between">
+      <div >
+        <Sidebar />
+      </div>
+      <div  className="w-[70%] mr-8 flex-shrink-0">
         <label
           htmlFor="searchInput"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-5xl text-gray-800 font-semibold mx-4 mt-8 my-16 flex-grow "
         >
           Search:
         </label>
@@ -28,7 +33,7 @@ export default function Page() {
             <input
               type="text"
               id="searchInput"
-              className="px-4 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+              className="px-4 border-indigo-500 focus:ring-indigo-500 flex-1 block w-full rounded-md sm:text-sm "
               placeholder="Enter your search term..."
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
@@ -42,7 +47,6 @@ export default function Page() {
             </button>
           </div>
         </form>
-        {}
       </div>
     </div>
   );
