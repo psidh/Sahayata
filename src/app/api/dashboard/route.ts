@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const {
-      slNo,
       date,
       dumperId,
       status,
@@ -20,21 +19,20 @@ export async function POST(request: NextRequest) {
     console.log(reqBody);
 
     // Check if data with the same dumperId already exists
-    const existingRecord = await Table.findOne({ dumperId });
+    // const existingRecord = await Table.findOne({ dumperId });
 
-    if (existingRecord) {
-      // Data with the same dumperId already exists, log the data
-      console.log('Data with dumperId already exists:', existingRecord);
+    // if (existingRecord) {
+    //   // Data with the same dumperId already exists, log the data
+    //   console.log('Data with dumperId already exists:', existingRecord);
 
-      return NextResponse.json({
-        message: 'Data with the same dumperId already exists',
-        success: false,
-      }, { status: 400 });
-    }
+    //   return NextResponse.json({
+    //     message: 'Data with the same dumperId already exists',
+    //     success: false,
+    //   }, { status: 400 });
+    // }
 
     // Create a new record if it doesn't exist
     const newTable = new Table({
-      slNo,
       date,
       dumperId,
       status,

@@ -1,7 +1,6 @@
 import { mongoose } from 'mongoose';
 
 const tableSchema = new mongoose.Schema({
-  slNo: { type: Number, required: true },
   date: { type: String, required: true },
   dumperId: { type: String, required: true },
   status: { type: String, required: true },

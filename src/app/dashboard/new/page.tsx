@@ -5,7 +5,6 @@ import TableDataItem from '../../../utils/table';
 import { toast, Toaster } from 'react-hot-toast';
 
 const initialState = {
-  slNo: 0,
   date: '',
   dumperId: '',
   status: '',
@@ -16,13 +15,6 @@ const initialState = {
 };
 export default function Table(): JSX.Element {
   const [table, setTable] = useState<TableDataItem>(initialState);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTable({
-      ...table,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const handlePushData = async () => {
     try {
@@ -58,13 +50,20 @@ export default function Table(): JSX.Element {
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTable({
+      ...table,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="flex justify-between">
       <Toaster />
       <div>
         <Sidebar />
       </div>
-      <div className="w-[70%] mr-8">
+      <div className="w-[70%] mr-8 flex-grow ">
         <h1 className="text-5xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow ">
           Enter Record:{' '}
         </h1>
@@ -74,21 +73,9 @@ export default function Table(): JSX.Element {
         <div className="mx-4 my-8 flex flex-col">
           <div className="space-y-4 flex flex-col justify-between w-[70%]">
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">SL.NO:</label>
-              <div>
-                <input
-                  type="number"
-                  name="slNo"
-                  placeholder="Enter SL.NO"
-                  value={table.slNo}
-                  onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border  border-[#969696]"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">DATE:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                DATE:
+              </label>
               <div>
                 <input
                   type="text"
@@ -102,7 +89,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">DUMPER ID:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                DUMPER ID:
+              </label>
               <div>
                 <input
                   type="text"
@@ -116,7 +105,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">STATUS:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                STATUS:
+              </label>
               <div>
                 <input
                   type="text"
@@ -130,7 +121,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">CURRENT CAPACITY:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                CURRENT CAPACITY:
+              </label>
               <div>
                 <input
                   type="number"
@@ -144,7 +137,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">AVAILABLE CAPACITY:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                AVAILABLE CAPACITY:
+              </label>
               <div>
                 <input
                   type="number"
@@ -158,7 +153,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">OPERATOR ID:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                OPERATOR ID:
+              </label>
               <div>
                 <input
                   type="text"
@@ -172,7 +169,9 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">TIME:</label>
+              <label className="flex items-center text-xl font-semibold text-blue-800">
+                TIME:
+              </label>
               <div>
                 <input
                   type="text"
@@ -190,12 +189,14 @@ export default function Table(): JSX.Element {
             onClick={async () => {
               await handlePushData();
             }}
-            className={`py-2 px-8 my-6 border  text-center rounded-md ${
-              table.slNo > 0
-                ? 'bg-blue-600 text-white hover:bg-blue-800'
-                : 'text-gray-500 bg-gray-200'
-            } transition duration-300`}
-            disabled={table.slNo <= 0}
+            className="py-2 px-8 my-6 border  text-center rounded-md bg-blue-600 text-white hover:bg-blue-800"
+            // }}
+            // className={`py-2 px-8 my-6 border  text-center rounded-md ${
+            //   table.slNo > 0
+            //     ? 'bg-blue-600 text-white hover:bg-blue-800'
+            //     : 'text-gray-500 bg-gray-200'
+            // } transition duration-300`}
+            // disabled={table.slNo <= 0}
           >
             Push Data
           </button>

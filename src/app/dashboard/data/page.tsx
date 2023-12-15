@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import TableDataItem from '../../../utils/table';
 
-
 export default function Table(): JSX.Element {
   const [tableData, setTableData] = useState<TableDataItem[]>([]);
   const headClass = 'py-2 px-4 border-b font-sans flex-grow';
@@ -34,8 +33,7 @@ export default function Table(): JSX.Element {
     };
 
     fetchData();
-  }, []); 
-      
+  }, []);
 
   return (
     <div className="flex ">
@@ -50,7 +48,6 @@ export default function Table(): JSX.Element {
         <table className="mx-4 my-8 flex-grow">
           <thead className="bg-gray-200  flex-grow">
             <tr>
-              <th className={headClass}>SL.NO</th>
               <th className={headClass}>DATE</th>
               <th className={headClass}>DUMPER ID</th>
               <th className={headClass}>STATUS</th>
@@ -66,7 +63,6 @@ export default function Table(): JSX.Element {
                 key={index}
                 className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
               >
-                <td className={rowClass}>{item.slNo}</td>
                 <td className={rowClass}>{item.date}</td>
                 <td className={rowClass}>{item.dumperId}</td>
                 <td className={rowClass}>{item.status}</td>
@@ -74,8 +70,6 @@ export default function Table(): JSX.Element {
                 <td className={rowClass}>{item.availableCapacity}</td>
                 <td className={rowClass}>{item.operatorId}</td>
                 <td className={rowClass}>{item.time}</td>
-                
-                
               </tr>
             ))}
           </tbody>

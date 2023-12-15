@@ -43,10 +43,10 @@ export default function Sidebar() {
   };
 
   return (
-    <div >
-      <IoIosMenu  onClick={toggleSidebar} className='w-12 h-12 mx-8 cursor-pointer'/>
+    <div>
+      <IoIosMenu  onClick={toggleSidebar} className='w-6 h-6 hover:opacity-70 transition duration-200 mx-8 cursor-pointer'/>
       <Toaster/>
-      <div className={`flex justify-between mx-4 my-8`}> 
+      <div className={`flex justify-between ml-4 mb-8`}> 
       <div className={`w-full rounded-md p-2 md:p-8  flex flex-row items-center md:flex-col md:space-y-2 ${isSidebarVisible ? '' : 'hidden'}` }>
         <Link href={'/dashboard'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Home</Link>
         <Link href={'/dashboard/data'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>View Record</Link>
