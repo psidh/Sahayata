@@ -25,12 +25,12 @@ const FeatureSlider: React.FC = () => {
   };
 
   return (
-    <div className="feature-container">
-      <div className="feature-bar">
+    <div className="feature-container bg-gray-100 p-4">
+      <div className="feature-bar flex space-x-4">
         {features.map((feature) => (
           <div
             key={feature.id}
-            className={`feature ${selectedFeature === feature.id ? 'selected' : ''}`}
+            className={`feature cursor-pointer p-2 rounded ${selectedFeature === feature.id ? 'bg-blue-500 text-white' : 'bg-white text-gray-800'}`}
             onClick={() => showFeature(feature.id)}
           >
             {feature.name}
@@ -39,8 +39,8 @@ const FeatureSlider: React.FC = () => {
       </div>
 
       {selectedFeature && (
-        <div className="feature-content">
-          <div>{features.find((feature) => feature.id === selectedFeature)?.content}</div>
+        <div className="feature-content mt-4">
+          <div className="text-gray-800">{features.find((feature) => feature.id === selectedFeature)?.content}</div>
         </div>
       )}
     </div>
