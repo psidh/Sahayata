@@ -74,7 +74,7 @@ export default function Table(): JSX.Element {
                 <td className={rowClass}>{item.availableCapacity}</td>
                 <td className={rowClass}>{item.operatorId}</td>
                 <td className={rowClass}>{item.time}</td>
-                <td className={rowClass}>{item.time}</td>
+                
                 
               </tr>
             ))}

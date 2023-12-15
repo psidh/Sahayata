@@ -6,6 +6,6 @@ connect();
 
 export async function GET(request: NextRequest, {params } : {params: {id: string}}) {
   const {id}  =  params;
-  const dumper  = await Table.findOne({ _id: id});
+  const dumper  = await Table.findAll({ _id: id});
   return NextResponse.json(dumper);
 }
