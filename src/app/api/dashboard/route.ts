@@ -56,7 +56,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const data = await Table.find();
+    const id = request.nextUrl.searchParams.get('id');
+    const data = await Table.find({dumperId : id});
     console.log(data);
     return NextResponse.json(data);
   } catch (error: any) {
@@ -65,10 +66,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-
   const id = request.nextUrl.searchParams.get('id');
   console.log(id);
   const deletedData = await Table.findByIdAndDelete(id);
   console.log(deletedData);
-  return NextResponse.json({ message : 'Row deleted', status: 200 });
+  return NextResponse.json({ message: 'Row deleted', status: 200 });
 }

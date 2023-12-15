@@ -27,7 +27,7 @@ export default function Navbar() {
           <Link href={'/'} className={normal}>Home</Link>
           <Link href={'/about'} className={normal}>About</Link>
           <Link href={'/contact'} className={normal}>Contact</Link>          
-          <Link href={'/dashboard'} className={linkClass}>Dashboard</Link>
+          <Link href={'/dashboard/data'} className={linkClass}>Dashboard</Link>
           <Link href={'/login'} className={linkClass}>Login</Link>
           <Link href={'/signup'} className={linkClass}>SignUp</Link>     
         </div>

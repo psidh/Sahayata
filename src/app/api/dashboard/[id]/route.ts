@@ -9,3 +9,4 @@ export async function GET(request: NextRequest, {params } : {params: {id: string
   const dumper  = await Table.find({ dumperId: id});
   return NextResponse.json(dumper);
 }
+
