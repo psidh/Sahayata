@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^9.7.2",
+    "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.1.7",
     "axios": "^1.6.2",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
