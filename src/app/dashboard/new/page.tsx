@@ -52,12 +52,12 @@ export default function Table(): JSX.Element {
   return (
     <div className="flex justify-between">
       <Toaster />
-      <div>
+      <div className='w-[25%]'>
         <Sidebar />
       </div>
-      <div className="w-[70%] mr-8 flex-grow ">
-        <h1 className="text-5xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow ">
-          Enter Record:{' '}
+      <div className="w-[75%] mr-8 flex-grow ">
+        <h1 className="text-5xl  font-semibold mx-4 mt-8 my-16 flex-grow ">
+          Enter Record{' '}
         </h1>
         {/* <p className="text-xl  font-semibold mx-4 mt-8 my-16 flex-grow ">Enter the details of the dumper</p> */}
 

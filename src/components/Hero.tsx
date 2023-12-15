@@ -35,10 +35,10 @@ export default function Hero() {
       }}
     >
       <div className="p-8">
-        <div className="p-8 backdrop-lg bg-opacity-80 bg-white  w-[40%] rounded-xl">
+        <div className="p-8 backdrop-lg bg-opacity-80 bg-white  w-[45%] rounded-xl">
           <ul>
-            <h1 className="text-4xl font-semibold p-8">What We Do:</h1>
-            <p className="leading-10 text-justify px-8  py-4 text-xl">
+            <h1 className="text-4xl font-semibold px-4 py-2">What We Do</h1>
+            <p className="leading-10 text-justify px-4  py-2 text-xl">
               Specialize in delivering cutting-edge real-time monitoring
               solutions. Focus on dumper load status through intuitive
               visualization and proactive alerts. Provide a seamlessly

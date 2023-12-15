@@ -1,33 +1,54 @@
 'use client';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { Toast, Toaster } from 'react-hot-toast';
-import { TEInput } from 'tw-elements-react';
 import { useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 
 export default function Page() {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchResults, setSearchResults] = useState<any>([]);
 
   const router = useRouter();
 
-  const handleSearch = (event :any) => {
+  const handleSearch = async (event: any) => {
     event.preventDefault();
-    router.push(`/dashboard/get/${searchTerm}`);
-  }
-  
-  
+    setSearchResults([]);
+    try {
+      const response = await fetch(`/api/dashboard?id=${searchTerm}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        console.error('Server error:', response);
+        console.error('Failed to fetch data from the server');
+        return;
+      }
+
+      const data = await response.json();
+      setSearchResults(data);
+      console.log('Data:', data);
+    } catch (error) {
+      console.error('Client error:', error);
+    }
+    // router.push(`/dashboard/get/${searchTerm}`);
+  };
+
   return (
     <div className="flex justify-between">
-      <div >
+      <div className='w-[25%]'>
         <Sidebar />
       </div>
-      <div  className="w-[70%] mr-8 flex-shrink-0">
+      <div className="w-[75%] mr-8 flex-shrink-0">
         <label
           htmlFor="searchInput"
-          className="block text-5xl text-gray-800 font-semibold mx-4 mt-8 my-16 flex-grow "
+          className="block text-5xl text-black font-semibold mx-4 mt-8 my-16 flex-grow "
         >
-          Search:
+          Search
+          <hr className="border border-gray-100  my-4" />
         </label>
+
         <form>
           <div className="mt-1 flex rounded-md shadow-sm">
             <input
@@ -47,6 +68,36 @@ export default function Page() {
             </button>
           </div>
         </form>
+        {searchResults.length > 0 && (
+          <div className="mt-4">
+            <h2 className="text-2xl font-semibold text-gray-700 mx-4 mt-8">
+              Search Results
+            </h2>
+            <hr className="border border-gray-100  my-4" />
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {searchResults.map((result: any, index: any) => (
+                <div
+                  key={index}
+                  className="bg-white overflow-hidden shadow rounded-lg"
+                >
+                  <div className="px-4 py-5 sm:p-6">
+                    <dl>
+                      <dt className="text-sm font-medium text-gray-500 truncate">
+                        {result.dumperId}
+                      </dt>
+                      <dt className="text-sm font-medium text-gray-500 truncate">
+                        {result.currentCapacity}
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900">
+                        {result.description}
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

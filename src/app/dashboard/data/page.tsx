@@ -36,12 +36,12 @@ export default function Table(): JSX.Element {
   }, []);
 
   return (
-    <div className="flex ">
-      <div className="">
+    <div className="flex justify-between">
+      <div className="w-[25%]">
         <Sidebar />
       </div>
 
-      <div className="">
+      <div className="w-[75%]">
         <h1 className="text-6xl text-blue-800 font-semibold mx-4 mt-8 my-16 flex-grow ">
           Records
         </h1>
