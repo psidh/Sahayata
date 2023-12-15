@@ -31,15 +31,7 @@ export default function Table(): JSX.Element {
       console.log('Response:', response);
 
       if (response.ok) {
-        toast.success('Pushed Data', {
-          style: {
-            width: '100px', // Set the width of the toast
-            height: '100px', // Set the height of the toast
-            top: '50%', // Center the toast vertically
-            left: '50%', // Center the toast horizontally
-            transform: 'translate(-50%, -50%)', // Adjust the position to center
-          },
-        });
+        toast.success('Pushed Data');
         setTable(initialState);
       } else {
         console.error('Server error:', responseData.error); // Log server error
