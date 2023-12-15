@@ -1,5 +1,5 @@
+'use client'
 import React, { useState } from 'react';
-import './FeatureSlider.css'; // Create a CSS file for styling
 
 interface Feature {
   id: string;
