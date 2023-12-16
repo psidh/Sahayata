@@ -5,7 +5,7 @@ const About: React.FC = () => {
     <div>
       <div>
         <div className="bg-orange-500 text-white py-24">
-          <div className="container mx-auto flex flex-col lg:flex-row items-center ">
+          <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center ">
             <div className="text-center lg:text-left lg:pr-8">
               <h1 className="text-5xl font-semibold mb-4">Our Mission</h1>
               <span className="text-2xl font-semibold my-4">

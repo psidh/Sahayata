@@ -66,17 +66,17 @@ export default function Page() {
             <input
               type="text"
               id="searchInput"
-              className="px-4 border-b border-gray-300 w-[75%] py-3 block  text-xl 
+              className="px-4 border-b border-gray-300 w-[80%] py-3 block  text-xl 
               outline-none"
-              placeholder="Enter your search term..."
+              placeholder="enter your Dumper ID . . . "
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
             <button
               onClick={handleSearch}
               type="submit"
-              className="ml-2 px-4 text-center w-[25%] py-2 
-              text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
+              className="ml-2 px-4 text-center w-[20%] py-2 text-2xl transition duration-200
+               font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 hover:rounded-full
               "
             >
               Search
