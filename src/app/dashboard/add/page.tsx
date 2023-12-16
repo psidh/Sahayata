@@ -50,7 +50,7 @@ export default function Table(): JSX.Element {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setTable({
       ...table,
       [e.target.name]: e.target.value,
@@ -111,7 +111,7 @@ export default function Table(): JSX.Element {
           <div className="space-y-4 flex flex-col justify-between w-[99%]">
             <div className="flex items-center justify-between">
               <label className={labelClass}>DATE</label>
-              <div className='w-[28%]'>
+              <div className="w-[28%]">
                 <input
                   type="date"
                   name="date"
@@ -139,15 +139,17 @@ export default function Table(): JSX.Element {
 
             <div className="flex items-center justify-between">
               <label className={labelClass}>STATUS</label>
-              <div>
-                <input
-                  type="text"
+              <div className=''>
+                <select
                   name="status"
-                  placeholder="Enter STATUS"
                   value={table.status}
                   onChange={handleInputChange}
-                  className="ml-2 p-2   border-b border-[#969696] outline-none "
-                />
+                  className="ml-2 p-2 border-b border-[#969696] outline-none]"
+                >
+                  <option value="full">Full</option>
+                  <option value="empty">Empty</option>
+                  <option value="filling">Filling</option>
+                </select>
               </div>
             </div>
 
@@ -160,7 +162,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter CURRENT CAPACITY"
                   value={table.currentCapacity}
                   onChange={handleInputChange}
-                  className="ml-2 p-2   border-b border-[#969696] outline-none "
+                  className="ml-2 p-2 border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -214,8 +216,9 @@ export default function Table(): JSX.Element {
                 handlePushData();
               }
             }}
-            // disabled={!validateForm()} 
-            className={`py-2 px-8 my-6 border text-center   bg-blue-600 text-white hover:bg-blue-800`}>
+            // disabled={!validateForm()}
+            className={`py-2 px-8 my-6 border text-center   bg-blue-600 text-white hover:bg-blue-800`}
+          >
             Push Data
           </button>
         </div>
