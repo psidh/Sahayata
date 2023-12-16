@@ -11,7 +11,9 @@ export const isValidDumperId = (dumperId: string): boolean => {
 };
 
 export const isValidStatus = (status: string): boolean => {
-  const validStatusValues = ['empty', 'filling', 'full'];
+
+  const validStatusValues = ['Empty', 'Filling', 'Full'];
+
   return validStatusValues.includes(status);
 };
 

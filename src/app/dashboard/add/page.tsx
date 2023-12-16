@@ -217,7 +217,7 @@ export default function Table(): JSX.Element {
               }
             }}
             // disabled={!validateForm()}
-            className={`py-2 px-8 my-6 border text-center   bg-blue-600 text-white hover:bg-blue-800`}
+            className={`py-2 px-8 my-6 border text-center rounded-md bg-blue-600 text-white hover:bg-blue-800`}
           >
             Push Data
           </button>
