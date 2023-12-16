@@ -55,18 +55,19 @@ export default function Page() {
       <div className="w-[75%] mr-8 flex-shrink-0">
         <label
           htmlFor="searchInput"
-          className="block text-5xl text-black font-semibold mx-4 mt-8 my-16 flex-grow "
+          className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow "
         >
           Search
-          <hr className="border border-gray-100  my-4" />
+          <hr className="border border-gray-100 mt-1 mb-2" />
         </label>
 
         <form>
-          <div className="mt-1 flex rounded-md shadow-sm">
+          <div className="mb-1 flex rounded-md ">
             <input
               type="text"
               id="searchInput"
-              className="px-4 border-indigo-500 focus:ring-indigo-500 flex-1 block w-full rounded-md sm:text-sm "
+              className="px-4 border-b border-gray-300 w-[75%] py-3 block  text-xl 
+              outline-none"
               placeholder="Enter your search term..."
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
@@ -74,7 +75,9 @@ export default function Page() {
             <button
               onClick={handleSearch}
               type="submit"
-              className="ml-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="ml-2 px-4 text-center w-[25%] py-2 
+              text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
+              "
             >
               Search
             </button>
@@ -83,8 +86,8 @@ export default function Page() {
 
         {searchResults.length > 0 && (
           <div className="mt-4">
-            <h2 className="text-2xl font-semibold text-gray-700 mx-4 mt-8">
-              Search Results
+            <h2 className="text-xl font-semibold text-gray-700 mr-4 mt-8">
+               Results
             </h2>
             <hr className="border border-gray-100  my-4" />
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">

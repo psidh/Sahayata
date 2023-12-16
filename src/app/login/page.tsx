@@ -31,9 +31,9 @@ export default function Login() {
       toast.success('Login Successful');
       console.log('Login Success', response.data);
       setIsLoggedIn(true);
-      router.push('/dashboard/data');
+      router.push('/dashboard/view');
     } catch (error: any) {
-      toast.error('Email or Password seems to be incorrect. Please try again',)
+      toast.error('Email or Password seems to be incorrect. Please try again');
       console.log('Login Failed');
       console.log(error);
     } finally {
