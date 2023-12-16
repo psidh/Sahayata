@@ -7,6 +7,7 @@ const tableSchema = new mongoose.Schema({
   currentCapacity: { type: Number, required: true },
   availableCapacity: { type: Number, required: true },
   operatorId: { type: String, required: true },
+  time: { type: String, required: true },
 });
 
 const Table = mongoose.models.table || mongoose.model('table', tableSchema);

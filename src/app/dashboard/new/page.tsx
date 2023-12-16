@@ -55,18 +55,15 @@ export default function Table(): JSX.Element {
       <div className='w-[25%]'>
         <Sidebar />
       </div>
-      <div className="w-[75%] mr-8 flex-grow ">
+      <div className="w-[70%] mr-8 flex-grow ">
         <h1 className="text-5xl  font-semibold mx-4 mt-8 my-16 flex-grow ">
           Enter Record{' '}
         </h1>
-        {/* <p className="text-xl  font-semibold mx-4 mt-8 my-16 flex-grow ">Enter the details of the dumper</p> */}
-
-        {/* Input form */}
         <div className="mx-4 my-8 flex flex-col">
-          <div className="space-y-4 flex flex-col justify-between w-[70%]">
+          <div className="space-y-4 flex flex-col justify-between w-[99%]">
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                DATE:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                DATE
               </label>
               <div>
                 <input
@@ -81,8 +78,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                DUMPER ID:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                DUMPER ID
               </label>
               <div>
                 <input
@@ -97,8 +94,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                STATUS:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                STATUS
               </label>
               <div>
                 <input
@@ -113,8 +110,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                CURRENT CAPACITY:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                CURRENT CAPACITY
               </label>
               <div>
                 <input
@@ -129,8 +126,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                AVAILABLE CAPACITY:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                AVAILABLE CAPACITY
               </label>
               <div>
                 <input
@@ -145,8 +142,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                OPERATOR ID:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                OPERATOR ID
               </label>
               <div>
                 <input
@@ -161,8 +158,8 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-800">
-                TIME:
+              <label className="flex items-center text-xl font-semibold text-blue-900">
+                TIME
               </label>
               <div>
                 <input

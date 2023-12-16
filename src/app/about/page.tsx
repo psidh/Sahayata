@@ -6,22 +6,20 @@ const About: React.FC = () => {
         <div className="bg-orange-500 text-white py-24">
           <div className="container mx-auto flex flex-col lg:flex-row items-center ">
             <div className="text-center lg:text-left lg:pr-8">
-              <h1 className="text-5xl font-semibold mb-4">About Us</h1>
-              <p className="text-xl text-justify mb-6 leading-loose">
-                Revolutionizing Shovel Operations in Mining Imagine a world
-                where shovel operators work with unmatched efficiency. A world
-                where real-time data empowers them to make informed decisions,
-                eliminate delays, and maximize productivity. This world is
-                closer than you think, thanks to our innovative system designed
-                to transform shovel operations in the mining industry.
-              </p>
-              <a
-                href="/login"
-                target="_blank" // Replace with the actual signup page URL
-                className="px-6 py-3 bg-black hover:bg-slate-800 text-white rounded-full transition duration-300 ease-in-out inline-block text-lg"
-              >
-                Get Started
-              </a>
+              <h1 className="text-5xl font-semibold mb-4">Our Mission</h1>
+              <span className="text-2xl font-semibold my-4">
+                Revolutionizing Shovel Operations
+              </span>
+              <ul className="text-xl text-justify my-6 leading-loose list-disc">
+                <li>Unmatched efficiency for shovel operators</li>
+                <li>
+                  Real-time data empowers informed decisions, eliminates delays,
+                  and maximizes productivity
+                </li>
+                <li>
+                  Innovative system designed to transform mining operations
+                </li>
+              </ul>
             </div>
 
             <div className=" mt-6 lg:mt-0">
@@ -44,14 +42,14 @@ const About: React.FC = () => {
         <div className=" text-blue-900 py-12">
           <div className="container mx-auto flex flex-col lg:flex-row items-center">
             <div className=" text-center lg:text-left lg:pr-8 ">
-              <h1 className="text-5xl font-semibold mb-4"> Our Mission</h1>
+              <h1 className="text-5xl font-semibold mb-4"> Our Vision</h1>
               <div className="text-xl text-justify leading-10 mb-6 ">
                 We are committed to developing cutting-edge solutions that
                 address the key challenges faced by shovel operators:
-                <ul>
+                <ul className="list-disc">
                   <li className="my-8">
                     <span className="text-2xl font-semibold">
-                      Lack of real-time visibility:
+                      Real-time Visibility
                     </span>{' '}
                     We bridge the information gap by providing instant and
                     accurate load status of each dumper, eliminating the need
@@ -59,10 +57,8 @@ const About: React.FC = () => {
                   </li>
                   <li className="my-8">
                     {' '}
-                    <span className="font-semibold">
-                      Inefficient workflows
-                    </span>{' '}
-                    : By optimizing the loading process, we minimize delays and
+                    <span className="font-semibold">Efficient Workflows</span> :
+                    By optimizing the loading process, we minimize delays and
                     maximize the number of loads per hour, leading to
                     significant productivity gains.{' '}
                   </li>
@@ -103,45 +99,19 @@ const About: React.FC = () => {
               <div className="text-xl text-justify leading-10 mb-6 ">
                 We are committed to developing cutting-edge solutions that
                 address the key challenges faced by shovel operators:
-                <ul>
-                  <li className="my-8">
-                    <span className="text-2xl font-semibold">
-                      Lack of real-time visibility:
-                    </span>{' '}
-                    We integrate sensors and IoT devices into dumpers,
-                    collecting real-time data on load weight, volume, and
-                    location. visual cues.
+                <ul className="list-disc pl-8">
+                  <li className="mb-4">
+                    Real-time Visibility: Sensors and IoT devices provide live
+                    data on load metrics.
                   </li>
-                  <li className="my-8">
-                    {' '}
-                    <span className="font-semibold">
-                      Inefficient workflows
-                    </span>{' '}
-                    Our intuitive interface displays the load status of each
-                    dumper in real-time, using clear visual indicators and
-                    notifications to inform the operator about readiness and
-                    completion.
+                  <li className="mb-4">
+                    Efficient Workflows: Intuitive interface shows real-time
+                    load status with visual indicators.
                   </li>
-                  <li className="my-8">
-                    <span className="font-semibold">
-                      Uninformed decision-making:
-                    </span>
-                    Our system seamlessly integrates with existing
-                    infrastructure, ensuring smooth data transmission and
-                    compatibility with other mining software and systems.
-                  </li>
-                  <li className="my-8">
-                    <span className="font-semibold">
-                      Scalability and robustness:
-                    </span>{' '}
-                    Our solution is designed to handle a large number of dumpers
-                    simultaneously and operate reliably in challenging mining
-                    environments.
-                  </li>
-                  <li className="my-8">
-                    <span className="font-semibold">Security and privacy:</span>{' '}
-                    We prioritize data security and privacy by implementing
-                    robust encryption and authentication measures
+                  <li>
+                    Informed Decision-Making: Seamless integration with existing
+                    infrastructure for smooth data transmission and
+                    compatibility, prioritizing security.
                   </li>
                 </ul>
               </div>

@@ -7,6 +7,7 @@ interface PopupItem {
   currentCapacity: number;
   availableCapacity: number;
   operatorId: string;
+  time : string;
 }
 
 interface PopupProps {
@@ -41,6 +42,7 @@ const Popup: React.FC<PopupProps> = ({ onClose, item }) => {
             Available Capacity: {item.availableCapacity}
           </p>
           <p className="text-gray-600 mt-4">Operator ID: {item.operatorId}</p>
+          <p className="text-gray-600 mt-4">Time: {item.time}</p>
         </div>
         <button
           className="relative bg-red-500 mt-6 w-full text-white py-2 px-8 rounded-md hover:bg-red-600"
