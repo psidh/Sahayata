@@ -56,13 +56,6 @@ const Support: React.FC = () => {
                 please fill out the form below, and we'll get back to you as
                 soon as possible.
               </p>
-              <a
-                href="/login"
-                target="_blank" // Replace with the actual signup page URL
-                className="px-6 py-3 bg-black hover:bg-green-700 text-white rounded-full transition duration-300 ease-in-out inline-block text-lg"
-              >
-                Sign Up Now!
-              </a>
             </div>
             <div className=" mt-6 lg:mt-0">
               {/* Next.js Image Component */}

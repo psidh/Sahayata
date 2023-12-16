@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
       currentCapacity,
       availableCapacity,
       operatorId,
+      time,
     } = reqBody;
 
     console.log(reqBody);
@@ -39,6 +40,7 @@ export async function POST(request: NextRequest) {
       currentCapacity,
       availableCapacity,
       operatorId,
+      time,
     });
 
     const savedTable = await newTable.save();

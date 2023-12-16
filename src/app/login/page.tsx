@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import './styles.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
@@ -9,6 +9,7 @@ import { toast, Toaster } from 'react-hot-toast';
 
 export default function Login() {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
 
   const [user, setUser] = React.useState({
     email: '',
@@ -29,6 +30,7 @@ export default function Login() {
       const response = await axios.post('/api/users/login', user);
       toast.success('Login Successful');
       console.log('Login Success', response.data);
+      setIsLoggedIn(true);
       router.push('/dashboard/data');
     } catch (error: any) {
       toast.error('Email or Password seems to be incorrect. Please try again',)
@@ -50,7 +52,7 @@ export default function Login() {
   return (
     <div>
       <Toaster />
-      <div className="flex flex-col min-h-screen justify-center items-center bg-body">
+      <div className="flex flex-col h-fit py-24 justify-center items-center bg-body">
         <div
           className="p-5 md:py-6 md:px-16 w-[80%] md:w-[40%] backdrop-xl 
        bg-opacity-80 border bg-white border-gray-200 rounded-xl

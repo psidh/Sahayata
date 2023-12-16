@@ -5,13 +5,15 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublicPath =
-    path === '/login' || path === '/signup' || path === '/verifyemail';
+    path === '/login' || path === '/signup' || path === '/verifyemail' ;
 
   const token = request.cookies.get('token')?.value || '';
 
-  if (isPublicPath && token) {
+  // const afterLoginPath = path === '/dashboard/data' ;
+
+    if (isPublicPath && token) {
     // User is already authenticated, redirect to a different route (e.g., '/dashboard')
-    return NextResponse.redirect(new URL('/dashboard', request.nextUrl));
+    return NextResponse.redirect(new URL('/dashboard/data', request.nextUrl));
   }
 
   if (!isPublicPath && !token) {
@@ -30,6 +32,6 @@ export const config = {
     '/verifyemail',
     '/about',
     '/contact',
-    '/dashboard',
+    '/dashboard/data',
   ],
 };
