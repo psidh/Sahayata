@@ -42,8 +42,9 @@ export default function Table(): JSX.Element {
       </div>
 
       <div className="w-[75%]">
-        <h1 className="text-6xl font-semibold mx-4 mt-8 my-16 flex-grow ">
-          View all records
+      <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
+          View All Records
+          <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
         <table className="mx-4 my-8 flex-grow">
           <thead className="bg-blue-200 flex-grow">

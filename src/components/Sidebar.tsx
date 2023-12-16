@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import axios from 'axios';
 import '../app/styles.css';
@@ -7,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { HiOutlineViewGrid } from 'react-icons/hi';
 import { GoPlus } from 'react-icons/go';
 import { IoMapOutline } from 'react-icons/io5';
-import { GoSearch } from "react-icons/go";
+import { GoSearch } from 'react-icons/go';
 
 export default function Sidebar() {
   const linkClass = `w-full px-10 text-xl py-2 rounded-lg 
@@ -25,8 +24,7 @@ export default function Sidebar() {
       toast.error(error.message);
     }
   };
-  
-  
+
   return (
     <div>
       <Toaster />
@@ -36,18 +34,18 @@ export default function Sidebar() {
             <p className="text-2xl my-2">Data</p>
             <hr className=" w-full mb-4" />
             <div>
-              <Link href={'/dashboard/data'} className="link  hover:text-white">
+              <Link href={'/dashboard/view'} className="link  hover:text-white">
                 <HiOutlineViewGrid className="w-6 h-6" />
                 <p>View All</p>
               </Link>
             </div>
             <div>
-              <Link href={'/dashboard/new'} className="link hover:text-white">
+              <Link href={'/dashboard/add'} className="link hover:text-white">
                 <GoPlus className="w-6 h-6" />
                 <p>Add record</p>
               </Link>
             </div>
-            <Link href={'/dashboard/get'} className="link hover:text-white">
+            <Link href={'/dashboard/search'} className="link hover:text-white">
               <GoSearch className="w-6 h-6" />
               Search a record
             </Link>

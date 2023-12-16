@@ -56,8 +56,9 @@ export default function Table(): JSX.Element {
         <Sidebar />
       </div>
       <div className="w-[70%] mr-8 flex-grow ">
-        <h1 className="text-5xl  font-semibold mx-4 mt-8 my-16 flex-grow ">
-          Enter Record{' '}
+        <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
+          Add Record{' '}
+          <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
         <div className="mx-4 my-8 flex flex-col">
           <div className="space-y-4 flex flex-col justify-between w-[99%]">
