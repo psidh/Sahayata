@@ -60,11 +60,6 @@ export default function Table(): JSX.Element {
   const labelClass = `flex items-center text-xl font-semibold text-blue-950`;
 
   const validateForm = (): boolean => {
-    if (!isValidDate(table.date)) {
-      toast.error('Invalid date format. Please use DD-MM-YYYY format.');
-      return false;
-    }
-
     if (!isValidDumperId(table.dumperId)) {
       toast.error(
         'Invalid DumperId. It must start with 2 letters and end with 4 digits.'
@@ -108,7 +103,7 @@ export default function Table(): JSX.Element {
       <div className="w-[25%]">
         <Sidebar />
       </div>
-      <div className="w-[70%] mr-8 flex-grow ">
+      <div className="w-[75%]">
         <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
           Add Record <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
@@ -116,14 +111,14 @@ export default function Table(): JSX.Element {
           <div className="space-y-4 flex flex-col justify-between w-[99%]">
             <div className="flex items-center justify-between">
               <label className={labelClass}>DATE</label>
-              <div>
+              <div className='w-[28%]'>
                 <input
-                  type="text"
+                  type="date"
                   name="date"
                   placeholder="DD-MM-YYYY"
                   value={table.date}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2 w-full  border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -137,7 +132,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter DUMPER ID"
                   value={table.dumperId}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none  "
                 />
               </div>
             </div>
@@ -151,7 +146,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter STATUS"
                   value={table.status}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -165,7 +160,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter CURRENT CAPACITY"
                   value={table.currentCapacity}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -179,7 +174,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter AVAILABLE CAPACITY"
                   value={table.availableCapacity}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -193,7 +188,7 @@ export default function Table(): JSX.Element {
                   placeholder="Enter OPERATOR ID"
                   value={table.operatorId}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
@@ -207,16 +202,20 @@ export default function Table(): JSX.Element {
                   placeholder="Enter TIME"
                   value={table.time}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 rounded-md border border-[#969696]"
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>
           </div>
 
           <button
-            onClick={validateForm}
+            onClick={() => {
+              if (validateForm()) {
+                handlePushData();
+              }
+            }}
             // disabled={!validateForm()} 
-            className={`py-2 px-8 my-6 border text-center rounded-md bg-blue-600 text-white hover:bg-blue-800`}>
+            className={`py-2 px-8 my-6 border text-center   bg-blue-600 text-white hover:bg-blue-800`}>
             Push Data
           </button>
         </div>
