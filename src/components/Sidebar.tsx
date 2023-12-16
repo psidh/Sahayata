@@ -11,8 +11,7 @@ import { GoSearch } from 'react-icons/go';
 export default function Sidebar() {
   const linkClass = `w-full px-10 text-xl py-2 rounded-lg 
     transition-colors duration-200 transform text-center 
-     text-black hover:text-white
-  `;
+     text-black hover:text-white `;
   const router = useRouter();
   const logout = async () => {
     try {
@@ -31,18 +30,18 @@ export default function Sidebar() {
       <div className="w-full px-8 py-6 card rounded-lg h-screen">
         <div className="w-full rounded-md  flex flex-col space-y-2">
           <div className="flex flex-col justify-between">
-            <p className="text-2xl my-2">Data</p>
+            <p className="text-2xl font-semibold px-4 my-2">Data</p>
             <hr className=" w-full mb-4" />
             <div>
               <Link href={'/dashboard/view'} className="link  hover:text-white">
                 <HiOutlineViewGrid className="w-6 h-6" />
-                <p>View All</p>
+                View All
               </Link>
             </div>
             <div>
               <Link href={'/dashboard/add'} className="link hover:text-white">
                 <GoPlus className="w-6 h-6" />
-                <p>Add record</p>
+                Add record
               </Link>
             </div>
             <Link href={'/dashboard/search'} className="link hover:text-white">
@@ -56,7 +55,7 @@ export default function Sidebar() {
           </Link>
           <button
             onClick={logout}
-            className={`${linkClass} hover:bg-red-600 bg-red-500  text-white invisible md:visible`}
+            className={`${linkClass} hover:bg-red-600 bg-red-500 text-white `}
           >
             Logout
           </button>

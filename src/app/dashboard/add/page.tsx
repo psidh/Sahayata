@@ -3,6 +3,14 @@ import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
 import TableDataItem from '../../../utils/table';
 import { toast, Toaster } from 'react-hot-toast';
+import {
+  isValidDate,
+  isValidDumperId,
+  isValidStatus,
+  isValidCapacity,
+  isValidOperatorId,
+  isValidTime,
+} from '../../../utils/validation';
 
 const initialState = {
   date: '',
@@ -49,28 +57,70 @@ export default function Table(): JSX.Element {
     });
   };
 
+  const labelClass = `flex items-center text-xl font-semibold text-blue-950`;
+
+  const validateForm = (): boolean => {
+    if (!isValidDate(table.date)) {
+      toast.error('Invalid date format. Please use DD-MM-YYYY format.');
+      return false;
+    }
+
+    if (!isValidDumperId(table.dumperId)) {
+      toast.error(
+        'Invalid DumperId. It must start with 2 letters and end with 4 digits.'
+      );
+      return false;
+    }
+
+    if (!isValidStatus(table.status)) {
+      toast.error('Invalid status. It must be empty, filling, or full.');
+      return false;
+    }
+
+    if (!isValidCapacity(table.currentCapacity)) {
+      toast.error('Invalid current capacity. It cannot be less than 1.');
+      return false;
+    }
+
+    if (!isValidCapacity(table.availableCapacity)) {
+      toast.error('Invalid available capacity. It cannot be less than 1.');
+      return false;
+    }
+
+    if (!isValidOperatorId(table.operatorId)) {
+      toast.error(
+        'Invalid OperatorId. It must start with 2 letters and end with 4 digits.'
+      );
+      return false;
+    }
+
+    if (!isValidTime(table.time)) {
+      toast.error('Invalid time format. Please use HH:MM format.');
+      return false;
+    }
+
+    return true;
+  };
+
   return (
     <div className="flex justify-between">
       <Toaster />
-      <div className='w-[25%]'>
+      <div className="w-[25%]">
         <Sidebar />
       </div>
       <div className="w-[70%] mr-8 flex-grow ">
         <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
-          Add Record{' '}
-          <hr className="border border-gray-100 mt-1 mb-2" />
+          Add Record <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
         <div className="mx-4 my-8 flex flex-col">
           <div className="space-y-4 flex flex-col justify-between w-[99%]">
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                DATE
-              </label>
+              <label className={labelClass}>DATE</label>
               <div>
                 <input
                   type="text"
                   name="date"
-                  placeholder="Enter DATE"
+                  placeholder="DD-MM-YYYY"
                   value={table.date}
                   onChange={handleInputChange}
                   className="ml-2 p-2 rounded-md border border-[#969696]"
@@ -79,9 +129,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                DUMPER ID
-              </label>
+              <label className={labelClass}>DUMPER ID</label>
               <div>
                 <input
                   type="text"
@@ -95,9 +143,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                STATUS
-              </label>
+              <label className={labelClass}>STATUS</label>
               <div>
                 <input
                   type="text"
@@ -111,9 +157,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                CURRENT CAPACITY
-              </label>
+              <label className={labelClass}>CURRENT CAPACITY</label>
               <div>
                 <input
                   type="number"
@@ -127,9 +171,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                AVAILABLE CAPACITY
-              </label>
+              <label className={labelClass}>AVAILABLE CAPACITY</label>
               <div>
                 <input
                   type="number"
@@ -143,9 +185,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                OPERATOR ID
-              </label>
+              <label className={labelClass}>OPERATOR ID</label>
               <div>
                 <input
                   type="text"
@@ -159,9 +199,7 @@ export default function Table(): JSX.Element {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-xl font-semibold text-blue-900">
-                TIME
-              </label>
+              <label className={labelClass}>TIME</label>
               <div>
                 <input
                   type="text"
@@ -176,18 +214,9 @@ export default function Table(): JSX.Element {
           </div>
 
           <button
-            onClick={async () => {
-              await handlePushData();
-            }}
-            className="py-2 px-8 my-6 border  text-center rounded-md bg-blue-600 text-white hover:bg-blue-800"
-            // }}
-            // className={`py-2 px-8 my-6 border  text-center rounded-md ${
-            //   table.slNo > 0
-            //     ? 'bg-blue-600 text-white hover:bg-blue-800'
-            //     : 'text-gray-500 bg-gray-200'
-            // } transition duration-300`}
-            // disabled={table.slNo <= 0}
-          >
+            onClick={validateForm}
+            // disabled={!validateForm()} 
+            className={`py-2 px-8 my-6 border text-center rounded-md bg-blue-600 text-white hover:bg-blue-800`}>
             Push Data
           </button>
         </div>
