@@ -49,20 +49,13 @@ const Support: React.FC = () => {
         {/* Hero Section */}
         <div className="bg-green-500 text-white py-12">
           <div className="container mx-auto flex flex-col lg:flex-row items-center">
-            <div className=" text-center lg:text-left lg:pr-8">
+            <div className="text-center lg:text-left lg:pr-8">
               <h1 className="text-4xl font-semibold mb-4">Support</h1>
               <p className="text-lg mb-6">
                 If you have any issues or questions regarding our website,
                 please fill out the form below, and we'll get back to you as
                 soon as possible.
               </p>
-              <a
-                href="/login"
-                target="_blank" // Replace with the actual signup page URL
-                className="px-6 py-3 bg-black hover:bg-green-700 text-white rounded-full transition duration-300 ease-in-out inline-block text-lg"
-              >
-                Sign Up Now!
-              </a>
             </div>
             <div className=" mt-6 lg:mt-0">
               {/* Next.js Image Component */}
@@ -83,82 +76,88 @@ const Support: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-2/3 justify-center mx-auto flex flex-col min-h-fit p-4">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              htmlFor="issue"
-              className="block text-gray-700 font-semibold"
+      <div className=" container mx-auto  min-h-fit p-4">
+        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+          <div>
+            <div className="mb-4">
+              <label
+                htmlFor="issue"
+                className="block text-gray-700 font-semibold"
+              >
+                Issue or Question
+              </label>
+              <textarea
+                id="issue"
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
+                rows={4}
+                cols={4}
+                value={issue}
+                onChange={(e) => setIssue(e.target.value)}
+                required
+              />
+            </div>
+            <button
+              type="button"
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2"
+              onClick={handleAddIssueToList}
             >
-              Issue or Question
-            </label>
-            <textarea
-              id="issue"
-              className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
-              rows={4}
-              value={issue}
-              onChange={(e) => setIssue(e.target.value)}
-              required
-            />
+              Add Issue to List
+            </button>
+            <div className="mb-4">
+              <label
+                htmlFor="issueList"
+                className="block text-gray-700 font-semibold my-2"
+              >
+                Issue List
+              </label>
+              <ul className="list-disc list-inside">
+                {issueList.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-semibold"
+          <div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-semibold"
+              >
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="images"
+                className="block text-gray-700 font-semibold"
+              >
+                Upload Images
+              </label>
+              <input
+                type="file"
+                id="images"
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
+                accept="image/*"
+                multiple
+                onChange={handleImageUpload}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
             >
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+              Submit
+            </button>
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="images"
-              className="block text-gray-700 font-semibold"
-            >
-              Upload Images
-            </label>
-            <input
-              type="file"
-              id="images"
-              className="w-full p-2 border rounded focus:outline-none focus:border-blue-400"
-              accept="image/*"
-              multiple
-              onChange={handleImageUpload}
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="issueList"
-              className="block text-gray-700 font-semibold"
-            >
-              Issue List
-            </label>
-            <ul className="list-disc list-inside">
-              {issueList.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <button
-            type="button"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2"
-            onClick={handleAddIssueToList}
-          >
-            Add Issue to List
-          </button>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-          >
-            Submit
-          </button>
         </form>
         {selectedImages.length > 0 && (
           <div className="mb-4">

@@ -32,10 +32,10 @@ const LeafletMap = () => {
 
   return (
     <div className='flex flex-col md:flex-row'>
-      <div className=" h-screen">
+      <div className="w-[25%]">
         <Sidebar />
       </div>
-      <div id="map" className="md:w-[70%]"></div>
+      <div id="map" className="[75%]"></div>
     </div>
   );
 };

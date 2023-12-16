@@ -8,39 +8,39 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const {
-      slNo,
       date,
       dumperId,
       status,
       currentCapacity,
       availableCapacity,
       operatorId,
+      time,
     } = reqBody;
 
     console.log(reqBody);
 
     // Check if data with the same dumperId already exists
-    const existingRecord = await Table.findOne({ dumperId });
+    // const existingRecord = await Table.findOne({ dumperId });
 
-    if (existingRecord) {
-      // Data with the same dumperId already exists, log the data
-      console.log('Data with dumperId already exists:', existingRecord);
+    // if (existingRecord) {
+    //   // Data with the same dumperId already exists, log the data
+    //   console.log('Data with dumperId already exists:', existingRecord);
 
-      return NextResponse.json({
-        message: 'Data with the same dumperId already exists',
-        success: false,
-      }, { status: 400 });
-    }
+    //   return NextResponse.json({
+    //     message: 'Data with the same dumperId already exists',
+    //     success: false,
+    //   }, { status: 400 });
+    // }
 
     // Create a new record if it doesn't exist
     const newTable = new Table({
-      slNo,
       date,
       dumperId,
       status,
       currentCapacity,
       availableCapacity,
       operatorId,
+      time,
     });
 
     const savedTable = await newTable.save();
@@ -57,5 +57,20 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  
+  try {
+    const id = request.nextUrl.searchParams.get('id');
+    const data = await Table.find({dumperId : id});
+    console.log(data);
+    return NextResponse.json(data);
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  const id = request.nextUrl.searchParams.get('id');
+  console.log(id);
+  const deletedData = await Table.findByIdAndDelete(id);
+  console.log(deletedData);
+  return NextResponse.json({ message: 'Row deleted', status: 200 });
 }

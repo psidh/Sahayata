@@ -1,25 +1,18 @@
-'use client';
 import Link from 'next/link';
 import axios from 'axios';
+import '../app/styles.css';
 import { Toaster, toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { IoIosMenu } from "react-icons/io";
+import { HiOutlineViewGrid } from 'react-icons/hi';
+import { GoPlus } from 'react-icons/go';
+import { IoMapOutline } from 'react-icons/io5';
+import { GoSearch } from 'react-icons/go';
 
 export default function Sidebar() {
-  const linkClass = `w-full md:px-20 text-xl md:py-4 rounded-lg 
-  text-white font-semibold transition-colors duration-200 transform text-center
-  `;
-
-  const [isSidebarVisible, setSidebarVisible] = useState(true);
-
+  const linkClass = `w-full px-10 text-xl py-2 rounded-lg 
+    transition-colors duration-200 transform text-center 
+     text-black hover:text-white `;
   const router = useRouter();
-  const [data, setData] = useState('nothing');
-
-  const toggleSidebar = () => {
-    setSidebarVisible(!isSidebarVisible);
-  };
-
   const logout = async () => {
     try {
       await axios.get('/api/users/logout');
@@ -29,42 +22,45 @@ export default function Sidebar() {
       console.log(error.message);
       toast.error(error.message);
     }
-  }
-
-  const getUserDetails = async () => {
-    try {
-      const res = await axios.get('/api/users/me');
-      console.log(res.data);
-      setData(res.data.data._id);
-    } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
-    }
   };
 
   return (
-    <div >
-      <IoIosMenu  onClick={toggleSidebar} className='w-12 h-12 mx-8 cursor-pointer'/>
-      <Toaster/>
-      <div className={`flex justify-between mx-4 my-8`}> 
-      <div className={`w-full rounded-md p-2 md:p-8  flex flex-row items-center md:flex-col md:space-y-2 ${isSidebarVisible ? '' : 'hidden'}` }>
-        <Link href={'/dashboard'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Home</Link>
-        <Link href={'/dashboard/data'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>View Record</Link>
-        <Link href={'/dashboard/new'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Add Record</Link>
-        <Link href={'/dashboard/map'} className={`${linkClass} hover:bg-blue-600 bg-blue-500`}>Map</Link>
-        <button onClick={getUserDetails} className={`${linkClass} hover:bg-yellow-600 bg-yellow-500 invisible md:visible`}>Profile</button>
-        <h2 className={`${linkClass} hover:bg-red-600 bg-red-500  invisible md:visible`}>
-          {data === 'nothing' ? (
-            '🔒 Encrypted'
-          ) : (
-            <Link href={`/dashboard/${data}`} target="_blank">
-              🔓 Unlocked
+    <div>
+      <Toaster />
+      <div className="w-full px-8 py-6 card rounded-lg h-screen">
+        <div className="w-full rounded-md  flex flex-col space-y-2">
+          <div className="flex flex-col justify-between">
+            <p className="text-2xl font-semibold px-4 my-2">Data</p>
+            <hr className=" w-full mb-4" />
+            <div>
+              <Link href={'/dashboard/view'} className="link  hover:text-white">
+                <HiOutlineViewGrid className="w-6 h-6" />
+                View All
+              </Link>
+            </div>
+            <div>
+              <Link href={'/dashboard/add'} className="link hover:text-white">
+                <GoPlus className="w-6 h-6" />
+                Add record
+              </Link>
+            </div>
+            <Link href={'/dashboard/search'} className="link hover:text-white">
+              <GoSearch className="w-6 h-6" />
+              Search a record
             </Link>
-          )}
-        </h2>
-        <button onClick={logout} className={`${linkClass} hover:bg-red-600 bg-red-500  invisible md:visible`}>Logout</button>
-      </div>
+          </div>
+          <Link href={'/dashboard/map'} className="link hover:text-white">
+            <IoMapOutline className="w-6 h-6" />
+            Map
+          </Link>
+          <button
+            onClick={logout}
+            className={`${linkClass} hover:bg-red-600 bg-red-500 text-white `}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
