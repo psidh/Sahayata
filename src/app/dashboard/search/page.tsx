@@ -52,7 +52,7 @@ export default function Page() {
       <div className='w-[25%]'>
         <Sidebar />
       </div>
-      <div className="w-[75%] mr-8 flex-shrink-0">
+      <div className="w-[75%]">
         <label
           htmlFor="searchInput"
           className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow "
