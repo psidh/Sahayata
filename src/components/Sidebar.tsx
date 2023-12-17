@@ -28,12 +28,12 @@ export default function Sidebar() {
 
   const linkClass = `w-full px-4 text-lg py-2 rounded-lg 
   transition-colors duration-200 transform text-center 
-   my-2  flex items-end justify-between `;
+   my-2  flex items-end justify-between hover:bg-blue-100 `;
 
   const link  = `w-full px-4 text-lg py-2 rounded-lg 
   transition-colors duration-200 transform text-center 
    my-2  flex items-end justify-between text-white
-  bg-blue-500`
+  bg-blue-500 `
   
   
   
