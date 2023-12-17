@@ -48,7 +48,7 @@ const FAQSection: React.FC = () => {
   return (
     <div className='flex flex-col items-center justify-center '>
     <div className="max-w-3xl w-full px-16 md:px-0 md:w-4/5 mt-8 h-screen">
-      <h2 className="text-4xl font-bold my-16 text-gray-100">Frequently Asked Questions</h2>
+      <h2 className="text-4xl font-bold my-16 ">Frequently Asked Questions</h2>
       <div>
         {faqData.map((faq) => (
           <div key={faq.id} className="my-4">

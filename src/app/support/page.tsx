@@ -47,7 +47,7 @@ const Support: React.FC = () => {
     <>
       <div className="min-h-fit">
         {/* Hero Section */}
-        <div className="bg-green-500 text-white py-12">
+        <div className="bg-blue-500 text-white py-12">
           <div className="container mx-auto flex flex-col lg:flex-row items-center">
             <div className="text-center lg:text-left lg:pr-8">
               <h1 className="text-4xl font-semibold mb-4">Support</h1>
