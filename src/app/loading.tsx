@@ -1,9 +1,7 @@
-import React from 'react'
-
-export default function loading() {
+export default function Loading() {
   return (
-    <div className='min-h-screen flex flex-col justify-center items-center w-[10%]'>
-      <img src="/loading.gif" alt="Loading GIF" className='w-1/2 h-1/2' />
+    <div className='fixed inset-0 flex flex-col justify-center items-center z-50 bg-opacity-75'>
+      <img src="/loading.gif" alt="Loading GIF" />
     </div>
-  )
+  );
 }

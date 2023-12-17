@@ -4,9 +4,7 @@ import Sidebar from '@/components/Sidebar';
 import TableDataItem from '../../../utils/table';
 import { toast, Toaster } from 'react-hot-toast';
 import {
-  isValidDate,
   isValidDumperId,
-  isValidStatus,
   isValidCapacity,
   isValidOperatorId,
   isValidTime,
@@ -64,11 +62,6 @@ export default function Table(): JSX.Element {
       toast.error(
         'Invalid DumperId. It must start with 2 letters and end with 4 digits.'
       );
-      return false;
-    }
-
-    if (!isValidStatus(table.status)) {
-      toast.error('Invalid status. It must be empty, filling, or full.');
       return false;
     }
 
