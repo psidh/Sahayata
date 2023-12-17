@@ -1,12 +1,9 @@
 export default function Hero() {
   return (
-    <div
-      className="bg-cover bg-top h-screen bg-[url('/home.jpg')]"
-      
-    >
+    <div className="bg-cover bg-top h-screen bg-[url('/home.jpg')]">
       <div className="p-8">
         <div className="p-8 backdrop-lg bg-opacity-80 bg-white  w-[45%] rounded-xl">
-          <ul>
+          <div className="">
             <h1 className="text-4xl font-semibold px-4 py-2">What We Do</h1>
             <p className="leading-10 text-justify px-4  py-2 text-xl">
               Specialize in delivering cutting-edge real-time monitoring
@@ -19,7 +16,7 @@ export default function Hero() {
               and privacy in all aspects of our services. Offer comprehensive
               monitoring and management of dumper operations.
             </p>
-          </ul>
+          </div>
         </div>
       </div>
     </div>

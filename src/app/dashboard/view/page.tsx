@@ -5,6 +5,7 @@ import TableDataItem from '../../../utils/table';
 
 export default function Table(): JSX.Element {
   const [tableData, setTableData] = useState<TableDataItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const headClass = 'py-2 px-4 border font-sans flex-grow text-center';
   const rowClass = 'py-2 px-4 border items-center flex-grow text-center';
 
@@ -25,9 +26,11 @@ export default function Table(): JSX.Element {
         }
 
         const data = await response.json();
+        setLoading(false);
         console.log('Response:', data);
         setTableData(data);
       } catch (error) {
+        setLoading(false);
         console.error('Error:', error);
       }
     };
@@ -42,39 +45,46 @@ export default function Table(): JSX.Element {
       </div>
 
       <div className="w-[75%]">
-      <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
+        <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
           View All Records
           <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
-        <table className="mx-4 my-8 flex-grow">
-          <thead className="bg-blue-200 flex-grow">
-            <tr>
-              <th className={headClass}>DATE</th>
-              <th className={headClass}>DUMPER ID</th>
-              <th className={headClass}>STATUS</th>
-              <th className={headClass}>CURRENT CAPACITY</th>
-              <th className={headClass}>AVAILABLE CAPACITY</th>
-              <th className={headClass}>OPERATOR ID</th>
-              <th className={headClass}>TIME</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((item, index) => (
-              <tr
-                key={index}
-                className={index % 2 === 0 ? 'bg-blue-50' : 'bg-white'}
-              >
-                <td className={rowClass}>{item.date}</td>
-                <td className={rowClass}>{item.dumperId}</td>
-                <td className={rowClass}>{item.status}</td>
-                <td className={rowClass}>{item.currentCapacity}</td>
-                <td className={rowClass}>{item.availableCapacity}</td>
-                <td className={rowClass}>{item.operatorId}</td>
-                <td className={rowClass}>{item.time}</td>
+
+        {loading === true ? (
+          <div className="flex justify-center items-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900" />
+          </div>
+        ) : (
+          <table className="mx-4 my-8 flex-grow">
+            <thead className="bg-blue-200 flex-grow">
+              <tr>
+                <th className={headClass}>DATE</th>
+                <th className={headClass}>DUMPER ID</th>
+                <th className={headClass}>STATUS</th>
+                <th className={headClass}>CURRENT CAPACITY</th>
+                <th className={headClass}>AVAILABLE CAPACITY</th>
+                <th className={headClass}>OPERATOR ID</th>
+                <th className={headClass}>TIME</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tableData.map((item, index) => (
+                <tr
+                  key={index}
+                  className={index % 2 === 0 ? 'bg-blue-50' : 'bg-white'}
+                >
+                  <td className={rowClass}>{item.date}</td>
+                  <td className={rowClass}>{item.dumperId}</td>
+                  <td className={rowClass}>{item.status}</td>
+                  <td className={rowClass}>{item.currentCapacity}</td>
+                  <td className={rowClass}>{item.availableCapacity}</td>
+                  <td className={rowClass}>{item.operatorId}</td>
+                  <td className={rowClass}>{item.time}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
