@@ -9,7 +9,7 @@ export default function MapContainer() {
         <Sidebar />
       </div>
       <div className='w-[75%]'>
-        <Map center={[23, 77]} />
+        {/* <Map center={[23, 77]} /> */}
       </div>
     </div>
   );
