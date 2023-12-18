@@ -15,10 +15,10 @@ const Footer: React.FC<FooterProps> = ({ sections = [] }) => {
       <div className="container mx-auto w-full py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       
         {/* Logo and About Section */}
-        <div className='p-8 md:p-0'>
-          <h2 className="text-4xl font-bold py-2">Footer</h2>
-          <p className="text-gray-400 py-2">
-            Your organization's mission or a brief description can go here.
+        <div className='p-4 md:p-0'>
+          <h2 className="text-4xl font-bold py-2">Spruce-Dev</h2>
+          <p className="text-blue-100 py-2">
+          Your organization's mission or a brief description can go here.
           </p>
           <div className="flex mt-4 space-x-4 py-2">
             <a title='Twitter' href="https://twitter.com/p-s1dharth" target="_blank" rel="noopener noreferrer">
@@ -54,8 +54,8 @@ const Footer: React.FC<FooterProps> = ({ sections = [] }) => {
           ))}
       </div>
 
-      <div className="py-8 border-t border-gray-600 ">
-        <p className="text-sm text-gray-500 text-center">
+      <div className="py-4 border-t border-gray-100 ">
+        <p className="text-sm text-gray-100 text-center">
           &copy; {new Date().getFullYear()} Spruce-Dev. All rights reserved.
         </p>
       </div>
