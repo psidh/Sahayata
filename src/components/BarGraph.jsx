@@ -36,19 +36,20 @@ const BarGraph = () => {
     chartInstance.current = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Cluster Data"],
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         datasets: [
           {
-            label: "Data",
-            data: [30,],
+            label: "Tonnes",
+            data: [10, 12, 13, 9, 5, 20, 17],
             backgroundColor: [
-              "rgba(110, 238, 14, 1)",
-              "rgba(110, 238, 14, 0.9)",
-              "rgba(110, 238, 14, 0.8)",
-              "rgba(110, 238, 14, 0.7)",
-              "rgba(110, 238, 14, 0.6)",
-              "rgba(110, 238, 14, 0.5)",
-              "rgba(110, 238, 14, 0.4)",
+              "rgba(1, 11, 148, 1)",
+              "rgba(1, 11, 148, 0.9)",
+              "rgba(1, 11, 148, 0.8)",
+              "rgba(1, 11, 148, 0.7)",
+              "rgba(1, 11, 148, 0.6)",
+              "rgba(1, 11, 148, 0.5)",
+              "rgba(1, 11, 148, 0.4)",
+
             ],
           },
         ],
