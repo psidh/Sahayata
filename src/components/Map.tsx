@@ -28,7 +28,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({ center }) => {
         <Popup>
           <div className='flex flex-col justify-between items-start'>
           <h1 className='text-xl italic'>Dumper Exact Location Detected </h1> <br /> FOUND
-          <Link href={'/dashboard/search?id=900'} className='px-4 py-1 rounded-md mt-2 w-[50%] text-white hover:bg-blue-500 bg-blue-600'>View Details</Link>
+          <Link href={'/dashboard/search?id=900'} className='px-4 py-1 rounded-md mt-2 w-[50%] text-white '>View Details</Link>
           </div>
         </Popup>
       </Marker>
