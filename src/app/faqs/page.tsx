@@ -46,9 +46,9 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center '>
+    <div className='flex flex-col items-center justify-center bg-blue-400'>
     <div className="max-w-3xl w-full px-16 md:px-0 md:w-4/5 mt-8 h-screen">
-      <h2 className="text-4xl font-bold my-16 text-gray-100">Frequently Asked Questions</h2>
+      <h2 className="text-4xl font-bold my-16 ">Frequently Asked Questions</h2>
       <div>
         {faqData.map((faq) => (
           <div key={faq.id} className="my-4">
@@ -56,11 +56,11 @@ const FAQSection: React.FC = () => {
               className="flex justify-between items-center cursor-pointer"
               onClick={() => toggleItem(faq.id)}
             >
-              <h3 className="text-xl font-semibold text-gray-300">{faq.question}</h3>
+              <h3 className="text-xl font-semibold text-white">{faq.question}</h3>
               <span className={`transition-transform transform duration-300  ${openItems.includes(faq.id) ? 'rotate-180' : ''}`}>▼</span>
             </div>
             {openItems.includes(faq.id) && (
-              <p className="my-2 text-gray-500">{faq.answer}</p>
+              <p className="my-2 text-white">{faq.answer}</p>
             )}
           </div>
         ))}
