@@ -21,16 +21,16 @@ const Footer: React.FC<FooterProps> = ({ sections = [] }) => {
             Your organization's mission or a brief description can go here.
           </p>
           <div className="flex mt-4 space-x-4 py-2">
-            <a href="https://twitter.com/p-s1dharth" target="_blank" rel="noopener noreferrer">
+            <a title='Twitter' href="https://twitter.com/p-s1dharth" target="_blank" rel="noopener noreferrer">
               <FaTwitter className="text-white hover:text-blue-400" />
             </a>
-            <a href="https://instagram.com/p-s1dharth" target="_blank" rel="noopener noreferrer">
+            <a title='Instagram' href="https://instagram.com/p-s1dharth" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="text-white hover:text-blue-600" />
             </a>
-            <a href="https://linkedin.com/in/p-sidharth" target="_blank" rel="noopener noreferrer">
+            <a title='LinkedIn' href="https://linkedin.com/in/p-sidharth" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="text-white hover:text-blue-500" />
             </a>
-            <a href="https://github.com/psidh" target="_blank" rel="noopener noreferrer">
+            <a title='Github' href="https://github.com/psidh" target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-white hover:text-gray-600" />
             </a>
           </div>
