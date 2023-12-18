@@ -42,13 +42,13 @@ const BarGraph = () => {
             label: "Tonnes",
             data: [10, 12, 13, 9, 5, 20, 17],
             backgroundColor: [
-              "rgba(1, 11, 148, 1)",
-              "rgba(1, 11, 148, 0.9)",
-              "rgba(1, 11, 148, 0.8)",
-              "rgba(1, 11, 148, 0.7)",
-              "rgba(1, 11, 148, 0.6)",
-              "rgba(1, 11, 148, 0.5)",
-              "rgba(1, 11, 148, 0.4)",
+              "rgb(59, 130, 246, 1)",
+              "rgb(59, 130, 246, 0.9)",
+              "rgb(59, 130, 246, 0.8)",
+              "rgb(59, 130, 246, 0.7)",
+              "rgb(59, 130, 246, 0.6)",
+              "rgb(59, 130, 246, 0.5)",
+              "rgb(59, 130, 246, 0.4)",
 
             ],
           },
@@ -84,7 +84,7 @@ const BarGraph = () => {
 
   return (
     <div className="text-black container mx-auto pt-4 pb-8 px-6 md:px-16 md:py-10">
-      <h1 className="md:text-4xl text-3xl font-semibold my-4 text-center md:text-left ">Coal dumper in tonnes</h1>
+      <h1 className="md:text-4xl text-3xl font-semibold my-4 text-center md:text-left ">Coal dumper <span className='text-lg font-light'>(in tonnes)</span> </h1>
       <div className="my-4">
         <div className="rounded-xl p-8">
           <canvas ref={chartRef} width={200} height={100} className="w-full md:h-auto text-black"></canvas>
