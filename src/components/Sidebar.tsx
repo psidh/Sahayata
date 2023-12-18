@@ -9,6 +9,7 @@ import { HiOutlineViewGrid } from 'react-icons/hi';
 import { GoPlus } from 'react-icons/go';
 import { IoMapOutline } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
+import { VscGraph } from "react-icons/vsc";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -41,6 +42,7 @@ export default function Sidebar() {
   const chosen2 = (hyperlink === '/dashboard/add' ? link : linkClass);
   const chosen3 = (hyperlink === '/dashboard/search' ? link : linkClass);
   const chosen4 = (hyperlink === '/dashboard/map' ? link : linkClass);
+  const chosen5 = (hyperlink === '/dashboard/analysis' ? link : linkClass);
 
   return (
     <div>
@@ -70,6 +72,10 @@ export default function Sidebar() {
           <Link href={'/dashboard/map'} className={chosen4}>
             <IoMapOutline className="w-6 h-6" />
             Map
+          </Link>
+          <Link href={'/dashboard/analysis'} className={chosen5}>
+            <VscGraph className="w-6 h-6" />
+            Quick Analysis
           </Link>
           <button
             onClick={logout}
