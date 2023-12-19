@@ -14,7 +14,6 @@ const initialState = {
   date: '',
   dumperId: '',
   status: '',
-  currentCapacity: 0,
   availableCapacity: 0,
   operatorId: '',
   time: '',
@@ -65,12 +64,6 @@ export default function Table(): JSX.Element {
       );
       return false;
     }
-
-    if (!isValidCapacity(table.currentCapacity)) {
-      toast.error('Invalid current capacity. It cannot be less than 1.');
-      return false;
-    }
-
     if (!isValidCapacity(table.availableCapacity)) {
       toast.error('Invalid available capacity. It cannot be less than 1.');
       return false;
@@ -146,20 +139,6 @@ export default function Table(): JSX.Element {
                   <option value="empty">Empty</option>
                   <option value="filling">Filling</option>
                 </select>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <label className={labelClass}>CURRENT CAPACITY</label>
-              <div>
-                <input
-                  type="number"
-                  name="currentCapacity"
-                  placeholder="Enter CURRENT CAPACITY"
-                  value={table.currentCapacity}
-                  onChange={handleInputChange}
-                  className="ml-2 p-2 border-b border-[#969696] outline-none "
-                />
               </div>
             </div>
 

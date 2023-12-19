@@ -4,7 +4,6 @@ interface PopupItem {
   dumperId: string;
   date: string;
   status: string;
-  currentCapacity: number;
   availableCapacity: number;
   operatorId: string;
   time: string;
@@ -42,10 +41,6 @@ const Popup: React.FC<PopupProps> = ({ onClose, item }) => {
             >
               {item.status}
             </p>
-          </div>
-          <div className='flex justify-between items-center'>
-            <p className='my-4 font-semibold'>Current Capacity</p>
-            <p className='my-4  py-2  px-4 rounded-xl '>{item.currentCapacity}</p>
           </div>
           <div className='flex justify-between items-center'>
             <p className='my-4 font-semibold'>Available Capacity</p>

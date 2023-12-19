@@ -38,7 +38,7 @@ export default function Navbar() {
           <img src="/azadi.png" alt="" className="w-20 h-auto" />
           <img src="/gl.png" alt="" className="w-20 h-auto" />
         </div>
-        <div className="space-x-8 hidden lg:flex justify-between items-center">
+        <div className="space-x-8 flex justify-between items-center">
           <Link href={'/'} className={chosen}>
             Home
           </Link>

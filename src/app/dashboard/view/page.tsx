@@ -61,7 +61,6 @@ export default function Table(): JSX.Element {
                 <th className={headClass}>DATE</th>
                 <th className={headClass}>DUMPER ID</th>
                 <th className={headClass}>STATUS</th>
-                <th className={headClass}>CURRENT CAPACITY</th>
                 <th className={headClass}>AVAILABLE CAPACITY</th>
                 <th className={headClass}>OPERATOR ID</th>
                 <th className={headClass}>TIME</th>
@@ -76,7 +75,6 @@ export default function Table(): JSX.Element {
                   <td className={rowClass}>{item.date}</td>
                   <td className={rowClass}>{item.dumperId}</td>
                   <td className={rowClass}>{item.status}</td>
-                  <td className={rowClass}>{item.currentCapacity}</td>
                   <td className={rowClass}>{item.availableCapacity}</td>
                   <td className={rowClass}>{item.operatorId}</td>
                   <td className={rowClass}>{item.time}</td>
