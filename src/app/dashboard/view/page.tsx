@@ -39,7 +39,7 @@ export default function Table(): JSX.Element {
   }, []);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between min-h-screen">
       <div className="w-[25%]">
         <Sidebar />
       </div>
@@ -61,8 +61,8 @@ export default function Table(): JSX.Element {
                 <th className={headClass}>DATE</th>
                 <th className={headClass}>DUMPER ID</th>
                 <th className={headClass}>STATUS</th>
-                <th className={headClass}>CURRENT CAPACITY</th>
-                <th className={headClass}>AVAILABLE CAPACITY</th>
+                <th className={headClass}>CARRYING WEIGHT</th>
+                <th className={headClass}>TOTAL WEIGHT</th>
                 <th className={headClass}>OPERATOR ID</th>
                 <th className={headClass}>TIME</th>
               </tr>
@@ -75,8 +75,8 @@ export default function Table(): JSX.Element {
                 >
                   <td className={rowClass}>{item.date}</td>
                   <td className={rowClass}>{item.dumperId}</td>
-                  <td className={rowClass}>{item.status}</td>
-                  <td className={rowClass}>{item.currentCapacity}</td>
+                  {item.status=== 'full' ? <td className='px-6 py-2 my-1 bg-green-500' >{item.status}</td> : <td className='px-6 py-2 my-1 bg-orange-400' >{item.status}</td>}
+                  <td className={rowClass}>{item.carryingCapacity}</td>
                   <td className={rowClass}>{item.availableCapacity}</td>
                   <td className={rowClass}>{item.operatorId}</td>
                   <td className={rowClass}>{item.time}</td>

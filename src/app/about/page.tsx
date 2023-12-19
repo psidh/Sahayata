@@ -11,12 +11,12 @@ const About: React.FC = () => {
                   // Replace with your image path
                   src="/icons/mission.png"
                   alt="Coal Operator Image"
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                 />
               </div>
             </div>
-            <div className="text-center ">
+            <div className="text-center p-8">
               <h1 className="text-3xl font-semibold my-4">Objectives</h1>
               <div className="text-lg text-justify">
                 We are committed to developing cutting-edge solutions that
@@ -43,7 +43,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-blue-200 text-blue-900">
+        <div className="bg-blue-200 text-blue-900 p-8">
           <div className="flex flex-col items-center justify-center p-4">
             <div>
               <div className="relative h-64 w-64">
@@ -51,8 +51,8 @@ const About: React.FC = () => {
                   // Replace with your image path
                   src="/icons/vision.png"
                   alt="Coal Operator Image"
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                 />
               </div>
             </div>

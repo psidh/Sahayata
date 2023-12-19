@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       date,
       dumperId,
       status,
-      currentCapacity,
+      carryingCapacity,
       availableCapacity,
       operatorId,
       time,
@@ -19,25 +19,12 @@ export async function POST(request: NextRequest) {
 
     console.log(reqBody);
 
-    // Check if data with the same dumperId already exists
-    // const existingRecord = await Table.findOne({ dumperId });
 
-    // if (existingRecord) {
-    //   // Data with the same dumperId already exists, log the data
-    //   console.log('Data with dumperId already exists:', existingRecord);
-
-    //   return NextResponse.json({
-    //     message: 'Data with the same dumperId already exists',
-    //     success: false,
-    //   }, { status: 400 });
-    // }
-
-    // Create a new record if it doesn't exist
     const newTable = new Table({
       date,
       dumperId,
       status,
-      currentCapacity,
+      carryingCapacity,
       availableCapacity,
       operatorId,
       time,
@@ -59,7 +46,7 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const id = request.nextUrl.searchParams.get('id');
-    const data = await Table.find({dumperId : id});
+    const data = await Table.find({ dumperId: id });
     console.log(data);
     return NextResponse.json(data);
   } catch (error: any) {
@@ -74,3 +61,17 @@ export async function DELETE(request: NextRequest) {
   console.log(deletedData);
   return NextResponse.json({ message: 'Row deleted', status: 200 });
 }
+
+
+    // Check if data with the same dumperId already exists
+    // const existingRecord = await Table.findOne({ dumperId });
+
+    // if (existingRecord) {
+    //   // Data with the same dumperId already exists, log the data
+    //   console.log('Data with dumperId already exists:', existingRecord);
+
+    //   return NextResponse.json({
+    //     message: 'Data with the same dumperId already exists',
+    //     success: false,
+    //   }, { status: 400 });
+    // }

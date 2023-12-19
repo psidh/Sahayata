@@ -14,7 +14,7 @@ const initialState = {
   date: '',
   dumperId: '',
   status: '',
-  currentCapacity: 0,
+  carryingCapacity: 0,
   availableCapacity: 0,
   operatorId: '',
   time: '',
@@ -48,7 +48,9 @@ export default function Table(): JSX.Element {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setTable({
       ...table,
       [e.target.name]: e.target.value,
@@ -56,7 +58,6 @@ export default function Table(): JSX.Element {
   };
 
   const labelClass = `flex items-center text-xl font-semibold text-blue-950`;
-
 
   const validateForm = (): boolean => {
     if (!isValidDumperId(table.dumperId)) {
@@ -66,8 +67,8 @@ export default function Table(): JSX.Element {
       return false;
     }
 
-    if (!isValidCapacity(table.currentCapacity)) {
-      toast.error('Invalid current capacity. It cannot be less than 1.');
+    if (!isValidCapacity(table.carryingCapacity)) {
+      toast.error('Invalid available capacity. It cannot be less than 1.');
       return false;
     }
 
@@ -91,10 +92,8 @@ export default function Table(): JSX.Element {
     return true;
   };
 
-
-  
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between min-h-screen">
       <Toaster />
       <div className="w-[25%]">
         <Sidebar />
@@ -135,7 +134,7 @@ export default function Table(): JSX.Element {
 
             <div className="flex items-center justify-between">
               <label className={labelClass}>STATUS</label>
-              <div className=''>
+              <div className="">
                 <select
                   name="status"
                   value={table.status}
@@ -148,17 +147,16 @@ export default function Table(): JSX.Element {
                 </select>
               </div>
             </div>
-
             <div className="flex items-center justify-between">
-              <label className={labelClass}>CURRENT CAPACITY</label>
+              <label className={labelClass}>CARRYING CAPACITY</label>
               <div>
                 <input
                   type="number"
-                  name="currentCapacity"
-                  placeholder="Enter CURRENT CAPACITY"
-                  value={table.currentCapacity}
+                  name="carryingCapacity"
+                  placeholder="Enter CARRYING CAPACITY"
+                  value={table.carryingCapacity}
                   onChange={handleInputChange}
-                  className="ml-2 p-2 border-b border-[#969696] outline-none "
+                  className="ml-2 p-2   border-b border-[#969696] outline-none "
                 />
               </div>
             </div>

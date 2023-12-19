@@ -10,6 +10,7 @@ import { GoPlus } from 'react-icons/go';
 import { IoMapOutline } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
 import { VscGraph } from "react-icons/vsc";
+import { FaUserAlt } from "react-icons/fa";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -43,6 +44,7 @@ export default function Sidebar() {
   const chosen3 = (hyperlink === '/dashboard/search' ? link : linkClass);
   const chosen4 = (hyperlink === '/dashboard/map' ? link : linkClass);
   const chosen5 = (hyperlink === '/dashboard/analysis' ? link : linkClass);
+  const chosen6 = (hyperlink === '/dashboard/dumper' ? link : linkClass);
 
   return (
     <div>
@@ -69,13 +71,17 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          <Link href={'/dashboard/map'} className={chosen4}>
+          {/* <Link href={'/dashboard/map'} className={chosen4}>
             <IoMapOutline className="w-6 h-6" />
             Map
-          </Link>
+          </Link> */}
           <Link href={'/dashboard/analysis'} className={chosen5}>
             <VscGraph className="w-6 h-6" />
             Quick Analysis
+          </Link>
+          <Link href={'/dashboard/analysis'} className={chosen6}>
+            <FaUserAlt className="w-6 h-6" />
+            Dumper Operator
           </Link>
           <button
             onClick={logout}

@@ -86,6 +86,7 @@ export default function Login() {
               setUser({ ...user, password: event.target.value })
             }
           />
+          <a href='/' className='text-lg  hover:underline cursor-pointer'>forgot password ?</a>
           {!buttonDisabled ? (
             <button
               onClick={onLogin}
