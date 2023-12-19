@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -33,10 +33,7 @@ export default function Navbar() {
     <div>
       <div className=" bg-white px-6 backdrop-blur-md bg-opacity-20 flex justify-between py-8">
         <div className="flex justify-between items-center space-x-6 pl-8">
-          <img src="/coal.svg" alt="" className="w-20 h-20" />
-          <img src="/sih.webp" alt="" className="w-14 h-14" />
-          <img src="/azadi.png" alt="" className="w-20 h-auto" />
-          <img src="/gl.png" alt="" className="w-20 h-auto" />
+           
         </div>
         <div className="space-x-8 flex justify-between items-center">
           <Link href={'/'} className={chosen}>
