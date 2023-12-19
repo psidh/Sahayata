@@ -71,8 +71,8 @@ export default function Page() {
 
         <p className="my-6 text-xl font-light">
           Enter a{' '}
-          <span className="bg-blue-200 px-2 py-1 rounded-md">OperatorID</span> to
-          get analysis of the particular operator
+          <span className="bg-blue-200 px-2 py-1 rounded-md">OperatorID</span>{' '}
+          to get analysis of the particular operator
         </p>
 
         <form>
@@ -80,7 +80,7 @@ export default function Page() {
             <input
               type="text"
               id="searchInput"
-              className="px-4 border-b border-gray-300 w-[80%] py-3 block  text-xl 
+              className="px-4 border-b border-gray-300 w-[80%] py-3 block  text-xl
               outline-none"
               placeholder="enter your Operator ID . . . "
               value={searchTerm}
@@ -129,7 +129,7 @@ export default function Page() {
           //   </div>
           // </div>
           <div>
-            <p className='text-3xl my-6'>Total Coal Extracted</p>
+            <p className="text-3xl my-6">Total Coal Extracted</p>
             <hr />
 
             <div className="relative flex justify-center items-center flex-row text-white">

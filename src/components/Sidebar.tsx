@@ -71,10 +71,10 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          {/* <Link href={'/dashboard/map'} className={chosen4}>
+          <Link href={'/dashboard/map'} className={chosen4}>
             <IoMapOutline className="w-6 h-6" />
             Map
-          </Link> */}
+          </Link>
           <Link href={'/dashboard/analysis'} className={chosen5}>
             <VscGraph className="w-6 h-6" />
             Quick Analysis
