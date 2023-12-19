@@ -57,6 +57,7 @@ export default function Table(): JSX.Element {
 
   const labelClass = `flex items-center text-xl font-semibold text-blue-950`;
 
+
   const validateForm = (): boolean => {
     if (!isValidDumperId(table.dumperId)) {
       toast.error(
@@ -90,6 +91,8 @@ export default function Table(): JSX.Element {
     return true;
   };
 
+
+  
   return (
     <div className="flex justify-between">
       <Toaster />

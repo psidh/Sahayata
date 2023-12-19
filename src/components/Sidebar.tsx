@@ -47,7 +47,7 @@ export default function Sidebar() {
   return (
     <div>
       <Toaster />
-      <div className="w-full px-8 py-6 card rounded-lg h-screen">
+      <div className="w-full px-8 py-6 card rounded-lg">
         <div className="w-full rounded-md  flex flex-col space-y-2">
           <div className="flex flex-col justify-between">
             <p className="text-2xl font-semibold px-4 my-2">Data</p>

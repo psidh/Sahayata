@@ -9,7 +9,8 @@ const IndexPage: React.FC = () => {
       <div className='w-[25%]'>
         <Sidebar />
       </div>
-      <div className='w-[55%]'>
+
+      <div className='w-[75%]'>
         <BarGraph />
       </div>
     </div>
