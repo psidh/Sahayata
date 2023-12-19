@@ -8,6 +8,8 @@ connect();
 export async function GET(request: NextRequest) {
   try {
     const data = await Table.find();
+    
+    
     return NextResponse.json(data);
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

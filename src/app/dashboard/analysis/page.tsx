@@ -56,7 +56,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between min-h-screen">
       <div className="w-[25%]">
         <Sidebar />
       </div>
@@ -69,7 +69,11 @@ export default function Page() {
           <hr className="border border-gray-100 mt-1 mb-2" />
         </label>
 
-        <p>Search by Operator ID</p>
+        <p className="my-6 text-xl font-light">
+          Enter a{' '}
+          <span className="bg-blue-200 px-2 py-1 rounded-md">OperatorID</span> to
+          get analysis of the particular operator
+        </p>
 
         <form>
           <div className="mb-1 flex rounded-md ">
@@ -89,7 +93,7 @@ export default function Page() {
                font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 hover:rounded-full
               "
             >
-              Search
+              Get Analysis
             </button>
           </div>
         </form>
