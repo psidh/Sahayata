@@ -23,6 +23,8 @@ export default function Table(): JSX.Element {
   const [table, setTable] = useState<TableDataItem>(initialState);
 
   const handlePushData = async () => {
+    console.log(table);
+    
     try {
       const response = await fetch('/api/dashboard', {
         method: 'POST',
@@ -100,7 +102,7 @@ export default function Table(): JSX.Element {
       </div>
       <div className="w-[75%]">
         <h1 className="block text-3xl text-black font-semibold mr-4 mt-8 mb-8  flex-grow ">
-          Add Record <hr className="border border-gray-100 mt-1 mb-2" />
+          Offline Sync <hr className="border border-gray-100 mt-1 mb-2" />
         </h1>
         <div className="mx-4 my-8 flex flex-col">
           <div className="space-y-4 flex flex-col justify-between w-[99%]">

@@ -7,7 +7,7 @@ export const isValidDumperId = (dumperId: string): boolean => {
 };
 
 export const isValidCapacity = (capacity: number): boolean => {
-  return capacity >= 1;
+  return capacity >= 0;
 };
 
 export const isValidOperatorId = (operatorId: string): boolean => {
