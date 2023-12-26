@@ -11,6 +11,7 @@ import { IoMapOutline } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
 import { VscGraph } from "react-icons/vsc";
 import { FaUserAlt } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -45,6 +46,8 @@ export default function Sidebar() {
   const chosen4 = (hyperlink === '/dashboard/map' ? link : linkClass);
   const chosen5 = (hyperlink === '/dashboard/analysis' ? link : linkClass);
   const chosen6 = (hyperlink === '/dashboard/dumper' ? link : linkClass);
+  const chosen7 = (hyperlink === '/dashboard/operator-analysis' ? link : linkClass);
+
 
   return (
     <div>
@@ -63,7 +66,7 @@ export default function Sidebar() {
             <div>
               <Link href={'/dashboard/add'} className={chosen2}>
                 <GoPlus className="w-6 h-6" />
-                Add record
+                Offline Sync
               </Link>
             </div>
             <Link href={'/dashboard/search'} className={chosen3}>
@@ -71,17 +74,25 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          {/* <Link href={'/dashboard/map'} className={chosen4}>
+          <Link href={'/dashboard/map'} className={chosen4}>
             <IoMapOutline className="w-6 h-6" />
             Map
-          </Link> */}
+          </Link>
+          <Link href={'/dashboard/operator-analysis'} className={chosen7}>
+            <VscGraph className="w-6 h-6" />
+            Operator Analysis
+          </Link>
           <Link href={'/dashboard/analysis'} className={chosen5}>
             <VscGraph className="w-6 h-6" />
-            Quick Analysis
+            Data Analysis
           </Link>
-          <Link href={'/dashboard/analysis'} className={chosen6}>
+          <Link href={'/dashboard/profile'} className={chosen6}>
             <FaUserAlt className="w-6 h-6" />
-            Dumper Operator
+            User Profile
+          </Link>
+          <Link href={'/support'} className={chosen6}>
+            <GrUserWorker className="w-6 h-6" />
+            Dumper Support
           </Link>
           <button
             onClick={logout}

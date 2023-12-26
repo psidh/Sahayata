@@ -50,7 +50,7 @@ const Support: React.FC = () => {
         <div className="bg-blue-500 text-white py-12">
           <div className="container mx-auto flex flex-col lg:flex-row items-center">
             <div className="text-center lg:text-left lg:pr-8">
-              <h1 className="text-4xl font-semibold mb-4">Support</h1>
+              <h1 className="text-4xl font-semibold mb-4">Support Page</h1>
               <p className="text-lg mb-6">
                 If you have any issues or questions regarding our website,
                 please fill out the form below, and we'll get back to you as

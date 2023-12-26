@@ -1,8 +1,12 @@
-'use client';
+"use client";
 // BarGraph.js
 
-import React, { useRef, useEffect } from 'react';
-import Chart from 'chart.js/auto';
+
+
+
+
+import React, { useRef, useEffect } from "react";
+import Chart from "chart.js/auto";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,17 +15,17 @@ const BarGraph = () => {
   const chartInstance = useRef(null); // Use a ref to keep track of the Chart.js instance
 
   useEffect(() => {
-    AOS.init({
+    AOS.init({ 
       delay: 50,
       offset: 100,
       duration: 500,
       once: false,
       mirror: true,
-      easing: 'ease-in-out',
+      easing: "ease-in-out",
     });
 
     const chartCanvas = chartRef.current;
-    const ctx = chartCanvas.getContext('2d');
+    const ctx = chartCanvas.getContext("2d");
 
     // Destroy existing Chart.js instance before initializing a new one
     if (chartInstance.current) {
@@ -30,29 +34,22 @@ const BarGraph = () => {
 
     // Initialize new Chart.js instance
     chartInstance.current = new Chart(ctx, {
-      type: 'bar',
+      type: "bar",
       data: {
-        labels: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
-        ],
+        labels: ["Jan", "Feb", "March", "Apr", "May ","Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [
           {
-            label: 'Tonnes',
-            data: [10, 12, 13, 9, 5, 20, 17],
+            label: "Tonnes",
+            data: [10, 12, 13, 9, 5, 20, 17, 10, 12, 13, 9, 5],
             backgroundColor: [
-              'rgb(59, 130, 246, 1)',
-              'rgb(59, 130, 246, 0.9)',
-              'rgb(59, 130, 246, 0.8)',
-              'rgb(59, 130, 246, 0.7)',
-              'rgb(59, 130, 246, 0.6)',
-              'rgb(59, 130, 246, 0.5)',
-              'rgb(59, 130, 246, 0.4)',
+              "rgb(59, 130, 46, 1)",
+              "rgb(59, 130, 46, 0.9)",
+              "rgb(59, 130, 46, 0.8)",
+              "rgb(59, 130, 46, 0.7)",
+              "rgb(59, 130, 46, 0.6)",
+              "rgb(59, 130, 46, 0.5)",
+              "rgb(59, 130, 46, 0.4)",
+
             ],
           },
         ],
@@ -64,7 +61,7 @@ const BarGraph = () => {
               display: false,
             },
             ticks: {
-              color: 'black',
+              color: "black",
               font: {
                 size: 14,
               },
@@ -74,7 +71,7 @@ const BarGraph = () => {
             beginAtZero: true,
             ticks: {
               stepSize: 10,
-              color: 'black',
+              color: "black",
               font: {
                 size: 18,
               },
@@ -87,17 +84,10 @@ const BarGraph = () => {
 
   return (
     <div className="text-black container mx-auto pt-4 pb-8 px-6 md:px-16 md:py-10">
-      <h1 className="md:text-4xl text-3xl font-semibold my-4 text-center md:text-left ">
-        Weekly Analysis <span className="text-lg font-light">(in tonnes)</span>{' '}
-      </h1>
+      <h1 className="md:text-4xl text-3xl font-semibold my-4 text-center md:text-left ">Year On Year analysis <span className='text-lg font-light'>(in tonnes)</span> </h1>
       <div className="my-4">
         <div className="rounded-xl p-8">
-          <canvas
-            ref={chartRef}
-            width={200}
-            height={100}
-            className="w-full md:h-auto text-black"
-          ></canvas>
+          <canvas ref={chartRef} width={200} height={100} className="w-full md:h-auto text-black"></canvas>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ export default function Table(): JSX.Element {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/dashboard/get`, {
+        const response = await fetch(`/api/live`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -76,10 +76,8 @@ export default function Table(): JSX.Element {
                   <td className={rowClass}>{item.date}</td>
                   <td className={rowClass}>{item.dumperId}</td>
                   {item.status === 'filling' ? (
-                    <td className="px-6 py-2 my-1 flex space-x-3 bg-yellow-100">
-                      <div className="w-4 h-4 bg-yellow-500 rounded-full border-collapse"></div>
-                      <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                      <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                    <td className="px-6 py-2 my-1 border bg-yellow-500 text-white">
+                      FILLING
                     </td>
                   ) : item.status === 'full' ? (
                     <td className="px-6 py-2 my-1 border bg-red-500 text-white">
