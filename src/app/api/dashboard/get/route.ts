@@ -6,8 +6,9 @@ connect();
 
 export async function GET(request: NextRequest) {
   try {
-    const data = await Table.find();
-
+    const id = request.nextUrl.searchParams.get('id');
+    const data = await Table.find({ dumperId: id });
+    console.log(data);
     return NextResponse.json(data);
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

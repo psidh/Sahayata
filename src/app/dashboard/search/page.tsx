@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Popup from '@/components/Pop';
 
-// Import necessary modules
-
 export default function Page() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searchResults, setSearchResults] = useState<any>([]);
@@ -16,13 +14,14 @@ export default function Page() {
     event.preventDefault();
     setSearchResults([]);
     try {
-      const response = await fetch(`/api/dashboard?id=${searchTerm}`, {
+      const response = await fetch(`/api/dashboard/get?id=${searchTerm}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+      console.log(response);
+      
       if (!response.ok) {
         console.error('Server error:', response);
         console.error('Failed to fetch data from the server');

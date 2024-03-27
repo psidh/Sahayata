@@ -65,10 +65,6 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          <Link href={'/dashboard/operator-analysis'} className={chosen7}>
-            <VscGraph className='w-6 h-6' />
-            Operator Analysis
-          </Link>
           <Link href={'/dashboard/analysis'} className={chosen5}>
             <VscGraph className='w-6 h-6' />
             Data Analysis
