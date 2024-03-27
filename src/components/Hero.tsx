@@ -33,12 +33,12 @@ export default function Hero() {
 
   return (
     <div className="bg-cover bg-top pb-40 bg-[url('/home.jpg')]">
-      <div className="flex ">
-        <div className="p-8">
-          <div className="p-8 backdrop-lg bg-opacity-80 bg-white  rounded-xl">
+      <div className='flex '>
+        <div className='p-8'>
+          <div className='p-8 backdrop-lg bg-opacity-80 bg-white  rounded-xl'>
             <div>
-              <h1 className="text-4xl font-semibold px-4 py-2">What We Do</h1>
-              <ul className="list-disc leading-10 flex flex-col text-justify px-4 py-2 text-xl">
+              <h1 className='text-4xl font-semibold px-4 py-2'>What We Do</h1>
+              <ul className='list-disc leading-10 flex flex-col text-justify px-4 py-2 text-xl'>
                 <li>Real-time monitoring, prioritizing dumper load status</li>
                 <li>Seamless integration for data transmission</li>
                 <li>Compatibility across systems with scalability</li>
@@ -53,16 +53,16 @@ export default function Hero() {
         <div>
           <div className='ml-24 w-[25%]]'>
             {text.map((faq) => (
-              <div key={faq.id} className="my-4">
+              <div key={faq.id} className='my-4'>
                 <div
-                  className="flex justify-between bg-white rounded-full cursor-pointer"
+                  className='flex justify-between bg-white rounded-full cursor-pointer'
                   onClick={() => toggleItem(faq.id)}
                 >
-                  <h3 className="text-xl font-semibold text-black">
+                  <h3 className='text-xl font-semibold text-black px-4 py-2'>
                     {faq.name}
                   </h3>
                   <span
-                    className={`transition-transform transform duration-300 ${
+                    className={`transition-transform transform duration-30 p-3 ${
                       openItems.includes(faq.id) ? 'rotate-180' : ''
                     }`}
                   >
@@ -70,7 +70,7 @@ export default function Hero() {
                   </span>
                 </div>
                 {openItems.includes(faq.id) && (
-                  <p className="my-2 text-black">{faq.description}</p>
+                  <p className='my-2 text-black'>{faq.description}</p>
                 )}
               </div>
             ))}

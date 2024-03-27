@@ -74,10 +74,6 @@ export default function Sidebar() {
               Search a record
             </Link>
           </div>
-          <Link href={'/dashboard/map'} className={chosen4}>
-            <IoMapOutline className="w-6 h-6" />
-            Map
-          </Link>
           <Link href={'/dashboard/operator-analysis'} className={chosen7}>
             <VscGraph className="w-6 h-6" />
             Operator Analysis

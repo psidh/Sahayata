@@ -24,7 +24,7 @@ export default function Login() {
     try {
       setLoading(true);
       toast.loading('Waiting...', {
-        duration: 2000, // Set the duration in milliseconds (2 seconds in this case)
+        duration: 2000, 
       });
 
       const response = await axios.post('/api/users/login', user);
