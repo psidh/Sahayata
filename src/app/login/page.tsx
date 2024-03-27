@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
-// import 'react-hot-toast/dist/react-hot-toast.css';
 
 export default function Login() {
   const router = useRouter();
