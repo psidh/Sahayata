@@ -111,6 +111,3 @@ export default function Login() {
     </div>
   );
 }
-function saveSettings(settings: any): Promise<unknown> {
-  throw new Error('Function not implemented.');
-}
