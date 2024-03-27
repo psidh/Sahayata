@@ -12,7 +12,7 @@ export default function Table(): JSX.Element {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/dashboard/get`, {
+        const response = await fetch(`/api/dashboard/`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
